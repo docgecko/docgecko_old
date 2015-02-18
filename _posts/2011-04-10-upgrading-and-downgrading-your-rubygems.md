@@ -2,6 +2,7 @@
 layout: article
 title: "Upgrading and downgrading your rubygems"
 categories: articles
+comments: true
 image:
   teaser: ruby-gems.jpg
 ---

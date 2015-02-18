@@ -2,6 +2,7 @@
 layout: article
 title: "Kill rails server"
 categories: articles
+comments: true
 image:
   teaser: kill-server.jpg
 ---

@@ -2,6 +2,7 @@
 layout: article
 title: "Excel SUMIF with criteria in multiple columns"
 categories: articles
+comments: true
 image:
   teaser: sumif.jpg
 ---

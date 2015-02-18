@@ -2,6 +2,7 @@
 layout: article
 title: "Excel cell validation - counting of non-blank cells"
 categories: articles
+comments: true
 image:
   teaser: data-validation.jpg
 ---

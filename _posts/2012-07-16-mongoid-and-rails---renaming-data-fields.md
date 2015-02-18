@@ -2,6 +2,7 @@
 layout: article
 title: "Mongoid and Rails - Renaming data fields"
 categories: articles
+comments: true
 image:
   teaser: mongoid-rails.jpg
 ---
