@@ -71,7 +71,7 @@ https://graph.facebook.com/me/accounts?access_token=BBBDGIb5OYp4BAJK0qYw8qw3
 
 Once you have entered this, you will be given a page that contains your Facebook Page ACCESS_TOKEN, e.g.:
 
-{% highlight http %}
+{% highlight json %}
 {
    "data": [
       {

@@ -9,7 +9,7 @@
   <subtitle>Specialist Risk &amp; Asset Performance Management Advisor</subtitle>
   <link href="http://localhost:4000/atom.xml" rel="self"/>
   <link href="http://localhost:4000/" rel="alternate" type="text/html"/>
-  <updated>2015-02-18T21:08:47+00:00</updated>
+  <updated>2015-02-18T21:10:14+00:00</updated>
   <id>http://localhost:4000/</id>
   <author>
     <name>Dr Daren Warburton</name>
@@ -134,30 +134,30 @@
 
 &lt;p&gt;Once you have entered this, you will be given a page that contains your Facebook Page ACCESS_TOKEN, e.g.:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-http&quot; data-lang=&quot;http&quot;&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;   &amp;quot;data&amp;quot;: [&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;      {&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;         &amp;quot;name&amp;quot;: &amp;quot;InfraJobs&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;         &amp;quot;access_token&amp;quot;: &amp;quot;BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;            TPoNvYZAZBbzeDXC6TKTB8wLnX3wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;         &amp;quot;category&amp;quot;: &amp;quot;Consulting/business services&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;         &amp;quot;id&amp;quot;: &amp;quot;130231394756745&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;      },&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;      {&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;         &amp;quot;name&amp;quot;: &amp;quot;InfraJobs&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;         &amp;quot;access_token&amp;quot;: &amp;quot;AAADGIb8OYp4BAMJBpufj6LhsDq2W8JhCpQW6P1zjZCK32uwuK&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;            0njrRItJybbfFPXKEOsZCCf4Sfjxkmk4dcJz43OQN8ttOKoPZClOnJZCwZDZD&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;         &amp;quot;category&amp;quot;: &amp;quot;Application&amp;quot;,&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;         &amp;quot;id&amp;quot;: &amp;quot;327845241634422&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;      }&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;   ],&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;   &amp;quot;paging&amp;quot;: {&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;      &amp;quot;next&amp;quot;: &amp;quot;https://graph.facebook.com/me/accounts?access_token=BBBDGI&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;        b5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;        6kAgtFNm3X4wezyvK7VWEZD&amp;amp;limit=5000&amp;amp;offset=5000&amp;amp;_&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;  _after_id=327845241634422&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;   }&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;nt&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;InfraJobs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;nt&quot;&gt;&amp;quot;access_token&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;            TPoNvYZAZBbzeDXC6TKTB8wLnX3wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;nt&quot;&gt;&amp;quot;category&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Consulting/business services&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;130231394756745&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;nt&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;InfraJobs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;nt&quot;&gt;&amp;quot;access_token&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;AAADGIb8OYp4BAMJBpufj6LhsDq2W8JhCpQW6P1zjZCK32uwuK&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;            0njrRItJybbfFPXKEOsZCCf4Sfjxkmk4dcJz43OQN8ttOKoPZClOnJZCwZDZD&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;nt&quot;&gt;&amp;quot;category&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Application&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;327845241634422&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;quot;paging&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;next&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://graph.facebook.com/me/accounts?access_token=BBBDGI&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;        b5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;        6kAgtFNm3X4wezyvK7VWEZD&amp;amp;limit=5000&amp;amp;offset=5000&amp;amp;_&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;  _after_id=327845241634422&amp;quot;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;As you see, there are two sets of data related to my site.  Once relates to my Facebook Page and the other relates to the Facebook App of the same name.  The ACCESS_TOKEN you require is the one related to the Facebook Page: in my case its the the first once in the list.&lt;/p&gt;
 

@@ -228,30 +228,30 @@
 
 <p>Once you have entered this, you will be given a page that contains your Facebook Page ACCESS_TOKEN, e.g.:</p>
 
-<div class="highlight"><pre><code class="language-http" data-lang="http"><span class="err">{</span>
-<span class="err">   &quot;data&quot;: [</span>
-<span class="err">      {</span>
-<span class="err">         &quot;name&quot;: &quot;InfraJobs&quot;,</span>
-<span class="err">         &quot;access_token&quot;: &quot;BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6</span>
-<span class="err">            TPoNvYZAZBbzeDXC6TKTB8wLnX3wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD&quot;,</span>
-<span class="err">         &quot;category&quot;: &quot;Consulting/business services&quot;,</span>
-<span class="err">         &quot;id&quot;: &quot;130231394756745&quot;</span>
-<span class="err">      },</span>
-<span class="err">      {</span>
-<span class="err">         &quot;name&quot;: &quot;InfraJobs&quot;,</span>
-<span class="err">         &quot;access_token&quot;: &quot;AAADGIb8OYp4BAMJBpufj6LhsDq2W8JhCpQW6P1zjZCK32uwuK</span>
-<span class="err">            0njrRItJybbfFPXKEOsZCCf4Sfjxkmk4dcJz43OQN8ttOKoPZClOnJZCwZDZD&quot;,</span>
-<span class="err">         &quot;category&quot;: &quot;Application&quot;,</span>
-<span class="err">         &quot;id&quot;: &quot;327845241634422&quot;</span>
-<span class="err">      }</span>
-<span class="err">   ],</span>
-<span class="err">   &quot;paging&quot;: {</span>
-<span class="err">      &quot;next&quot;: &quot;https://graph.facebook.com/me/accounts?access_token=BBBDGI</span>
-<span class="err">        b5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b</span>
-<span class="err">        6kAgtFNm3X4wezyvK7VWEZD&amp;limit=5000&amp;offset=5000&amp;_</span>
-<span class="err">  _after_id=327845241634422&quot;</span>
-<span class="err">   }</span>
-<span class="err">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+   <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;InfraJobs&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6</span>
+<span class="s2">            TPoNvYZAZBbzeDXC6TKTB8wLnX3wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Consulting/business services&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;130231394756745&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;InfraJobs&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;AAADGIb8OYp4BAMJBpufj6LhsDq2W8JhCpQW6P1zjZCK32uwuK</span>
+<span class="s2">            0njrRItJybbfFPXKEOsZCCf4Sfjxkmk4dcJz43OQN8ttOKoPZClOnJZCwZDZD&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Application&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;327845241634422&quot;</span>
+      <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="nt">&quot;paging&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://graph.facebook.com/me/accounts?access_token=BBBDGI</span>
+<span class="s2">        b5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b</span>
+<span class="s2">        6kAgtFNm3X4wezyvK7VWEZD&amp;limit=5000&amp;offset=5000&amp;_</span>
+<span class="s2">  _after_id=327845241634422&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
 <p>As you see, there are two sets of data related to my site.  Once relates to my Facebook Page and the other relates to the Facebook App of the same name.  The ACCESS_TOKEN you require is the one related to the Facebook Page: in my case its the the first once in the list.</p>
 
