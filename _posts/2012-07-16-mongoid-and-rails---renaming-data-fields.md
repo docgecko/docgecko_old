@@ -18,17 +18,23 @@ Fortunately, this is actually quite simple.
 
 Firstly, begin by logging into the rails console of your site.  I use RVM so I always start my rails terminal commands with:
 
-<pre>bundle exec</pre>
+{% highlight bash %}
+bundle exec
+{% endhighlight %}
 
 As such, to log into the rails console, the full command is:
 
-<pre>bundle exec rails c</pre>
+{% highlight bash %}
+bundle exec rails c
+{% endhighlight %}
 
 In my case, I had a collection called "Photo" with a field called "order_no", which I began to dislike...lol.  Anyway, I wanted to change it to "position".  (This field was used to know the position or order of photos related to a property).
 
 So, to make the field name change, within the terminal you use the "db.collection.update" command as follows:
 
-<pre>db.collection.update( criteria, objNew, upsert, multi )</pre>
+{% highlight bash %}
+db.collection.update( criteria, objNew, upsert, multi )
+{% endhighlight %}
 
 with the following arguments:
 
@@ -39,8 +45,10 @@ with the following arguments:
 
 As such, in my case, I used the following to update my collection's field name:
 
-<pre>Photo.collection.update({},
+{% highlight bash %}
+Photo.collection.update({},
 	{'$rename' => {'order_no_' => 'position'}},
-	multi: true, safe: true)</pre>
+	multi: true, safe: true)
+{% endhighlight %}
 
 Very simple, but very useful indeed!

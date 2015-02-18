@@ -18,7 +18,7 @@
 	<meta name="twitter:creator" content="@drwarbie">
 	
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:image" content="http://docgecko.com/images/">
+	<meta name="twitter:image" content="http://localhost:4000/images/">
 	
 	<!-- Open Graph -->
 	<meta property="og:locale" content="Lisbon, Portugal">
@@ -27,13 +27,13 @@
 	<meta property="og:description" content="I have a jobs board app built in Ruby on Rails (http://infrajobshq.com).  As jobs are posted to the site by job advertisers, the app posts shortened information about each jobs to both Twitter and Facebook pages.
 
 ">
-	<meta property="og:url" content="http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/">
+	<meta property="og:url" content="http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/">
 	<meta property="og:site_name" content="Dr Daren Warburton">
 
-    <link rel="canonical" href="http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/">
+    <link rel="canonical" href="http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/">
 
-    <link href="http://docgecko.com/atom.xml" type="application/atom+xml" rel="alternate" title="Dr Daren Warburton Atom Feed">
-    <link href="http://docgecko.com/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+    <link href="http://localhost:4000/atom.xml" type="application/atom+xml" rel="alternate" title="Dr Daren Warburton Atom Feed">
+    <link href="http://localhost:4000/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -56,11 +56,11 @@
     }
     </style>
 
-    <link rel="stylesheet" href="http://docgecko.com/css/main.css">
+    <link rel="stylesheet" href="http://localhost:4000/css/main.css">
     <!-- HTML5 Shiv and Media Query Support for IE -->
     <!--[if lt IE 9]>
-      <script src="http://docgecko.com/js/vendor/html5shiv.min.js"></script>
-      <script src="http://docgecko.com/js/vendor/respond.min.js"></script>
+      <script src="http://localhost:4000/js/vendor/html5shiv.min.js"></script>
+      <script src="http://localhost:4000/js/vendor/respond.min.js"></script>
     <![endif]-->
 
   </head>
@@ -68,7 +68,7 @@
   <body>
     <header id="masthead">
   <div class="inner-wrap">
-    <a href="http://docgecko.com/" class="site-title">Dr Daren Warburton</a>
+    <a href="http://localhost:4000/" class="site-title">Dr Daren Warburton</a>
     <nav role="navigation" class="menu top-menu">
         <ul class="menu-item">
 	<li class="home"><a href="/">Dr Daren Warburton</a></li>
@@ -76,27 +76,27 @@
     
         
     
-    <li><a href="http://docgecko.com/blog/" >Blog</a></li>
+    <li><a href="http://localhost:4000/blog/" >Blog</a></li>
   
     
         
     
-    <li><a href="http://docgecko.com/code/" >Code</a></li>
+    <li><a href="http://localhost:4000/code/" >Code</a></li>
   
     
         
     
-    <li><a href="http://docgecko.com/models/" >Models</a></li>
+    <li><a href="http://localhost:4000/models/" >Models</a></li>
   
     
         
     
-    <li><a href="http://docgecko.com/health/" >Health</a></li>
+    <li><a href="http://localhost:4000/health/" >Health</a></li>
   
     
         
     
-    <li><a href="http://docgecko.com/about/" >About</a></li>
+    <li><a href="http://localhost:4000/about/" >About</a></li>
   
 </ul>
 
@@ -111,35 +111,35 @@
         
       
 			
-			<a href="http://docgecko.com/blog/" class="title">Blog</a>
+			<a href="http://localhost:4000/blog/" class="title">Blog</a>
 			<p class="excerpt">My general thoughts and discussions.</p>
 		</li><li>
       
         
       
 			
-			<a href="http://docgecko.com/code/" class="title">Code</a>
+			<a href="http://localhost:4000/code/" class="title">Code</a>
 			<p class="excerpt">A selection of useful code snippets and uses</p>
 		</li><li>
       
         
       
 			
-			<a href="http://docgecko.com/models/" class="title">Models</a>
+			<a href="http://localhost:4000/models/" class="title">Models</a>
 			<p class="excerpt">A selection of useful Excel </p>
 		</li><li>
       
         
       
 			
-			<a href="http://docgecko.com/health/" class="title">Health</a>
+			<a href="http://localhost:4000/health/" class="title">Health</a>
 			<p class="excerpt">I love to swim, bike and run!</p>
 		</li><li>
       
         
       
 			
-			<a href="http://docgecko.com/about/" class="title">About</a>
+			<a href="http://localhost:4000/about/" class="title">About</a>
 			<p class="excerpt">Found out or contact Daren Warburton.</p>
 		</li>
 	</ul>
@@ -159,11 +159,11 @@
 		
   <nav class="breadcrumbs">
     <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-      <a href="http://docgecko.com" itemprop="url">
+      <a href="http://localhost:4000" itemprop="url">
         <span itemprop="title">Home</span>
       </a> ›
     <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-      <a href="http://docgecko.com/code/" itemprop="url">
+      <a href="http://localhost:4000/code/" itemprop="url">
         <span itemprop="title">Code</span>
       </a>
     </span>
@@ -188,14 +188,12 @@
 
 <p>In order to gain your Facebook account ACCESS TOKEN, you can use the following url (in your chosen browser):</p>
 
-<pre>https://www.facebook.com/dialog/oauth?
-     client_id=YOUR_APP_ID&amp;redirect_uri=YOUR_URL&amp;scope=manage_pages&amp;
-     response_type=token
-</pre>
+<div class="highlight"><pre><code class="language-http" data-lang="http"><span class="err">https://www.facebook.com/dialog/oauth?client_id=YOUR_APP_ID&amp;</span>
+<span class="err">  redirect_uri=YOUR_URL&amp;scope=manage_pages&amp;response_type=token</span></code></pre></div>
 
 <p>YOUR_APP_ID and YOUR_URL can be found on your personal Facebook Developers page, where you apps exist, i.e.:</p>
 
-<pre>https://developers.facebook.com/apps</pre>
+<div class="highlight"><pre><code class="language-http" data-lang="http"><span class="err">https://developers.facebook.com/apps</span></code></pre></div>
 
 <p>As you can see from this page, under the Summary section, you can find your:</p>
 
@@ -206,15 +204,14 @@
 
 <p>So, substituting YOUR_APP_ID with your “App ID/API Key” and YOUR_URL with your “Site URL”, you will have a url that looks something like this:</p>
 
-<pre>https://www.facebook.com/dialog/oauth?
-     client_id=542148432111423&amp;redirect_uri=http://infrajobshq.com/&amp;scope=manage_pages&amp;
-     response_type=token
-</pre>
+<div class="highlight"><pre><code class="language-http" data-lang="http"><span class="err">https://www.facebook.com/dialog/oauth?client_id=542148432111423&amp;</span>
+<span class="err">  redirect_uri=http://infrajobshq.com/&amp;scope=manage_pages&amp;</span>
+<span class="err">  response_type=token</span></code></pre></div>
 
 <p>As you enter this url, you will be redirected to your site’s url, in my case to http://infrajobshq.com.  And now, as you will see from the url, it contains additional information after sites main address, e.g. it looks something like this:</p>
 
-<pre>http://infrajobshq.com/#access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZA
-		 xQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD&amp;expires_in=0</pre>
+<div class="highlight"><pre><code class="language-http" data-lang="http"><span class="err">http://infrajobshq.com/#access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvo</span>
+<span class="err">  bHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD&amp;expires_in=0</span></code></pre></div>
 
 <p>As you can see, the url contains the ACCESS TOKEN for your Facebook Account.  You will need this for the next step.</p>
 
@@ -222,38 +219,39 @@
 
 <p>Now, to find the ACCESS TOKEN for your Facebook Page, use the following url:</p>
 
-<pre>https://graph.facebook.com/me/accounts?access_token=ACCESS_TOKEN</pre>
+<div class="highlight"><pre><code class="language-http" data-lang="http"><span class="err">https://graph.facebook.com/me/accounts?access_token=ACCESS_TOKEN</span></code></pre></div>
 
 <p>Simply replace the ACCESS_TOKEN with your Facebook Account ACCESS_TOKEN (and no need to include the bit on the end of the url that is ‘&amp;expires_in=0’).  In my case, the url looks like this:</p>
 
-<pre>https://graph.facebook.com/me/accounts?access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4O
-		 sI50LGIshL8fUZAxQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD</pre>
+<div class="highlight"><pre><code class="language-http" data-lang="http"><span class="err">https://graph.facebook.com/me/accounts?access_token=BBBDGIb5OYp4BAJK0qYw8qw3</span>
+<span class="err">  fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD</span></code></pre></div>
 
 <p>Once you have entered this, you will be given a page that contains your Facebook Page ACCESS_TOKEN, e.g.:</p>
 
-<pre>{
-   "data": [
-      {
-         "name": "InfraJobs",
-         "access_token": "BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6TPoNvYZAZBbzeDXC6TKTB8w
-  LnX3wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD",
-         "category": "Consulting/business services",
-         "id": "130231394756745"
-      },
-      {
-         "name": "InfraJobs",
-         "access_token": "AAADGIb8OYp4BAMJBpufj6LhsDq2W8JhCpQW6P1zjZCK32uwuK0njrRItJybbfFPXKEOsZCCf
-  4Sfjxkmk4dcJz43OQN8ttOKoPZClOnJZCwZDZD",
-         "category": "Application",
-         "id": "327845241634422"
-      }
-   ],
-   "paging": {
-      "next": "https://graph.facebook.com/me/accounts?access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps2
-  3xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD&amp;limit=5000&amp;offset=5000&amp;_
-  _after_id=327845241634422"
-   }
-}</pre>
+<div class="highlight"><pre><code class="language-http" data-lang="http"><span class="err">{</span>
+<span class="err">   &quot;data&quot;: [</span>
+<span class="err">      {</span>
+<span class="err">         &quot;name&quot;: &quot;InfraJobs&quot;,</span>
+<span class="err">         &quot;access_token&quot;: &quot;BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6</span>
+<span class="err">            TPoNvYZAZBbzeDXC6TKTB8wLnX3wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD&quot;,</span>
+<span class="err">         &quot;category&quot;: &quot;Consulting/business services&quot;,</span>
+<span class="err">         &quot;id&quot;: &quot;130231394756745&quot;</span>
+<span class="err">      },</span>
+<span class="err">      {</span>
+<span class="err">         &quot;name&quot;: &quot;InfraJobs&quot;,</span>
+<span class="err">         &quot;access_token&quot;: &quot;AAADGIb8OYp4BAMJBpufj6LhsDq2W8JhCpQW6P1zjZCK32uwuK</span>
+<span class="err">            0njrRItJybbfFPXKEOsZCCf4Sfjxkmk4dcJz43OQN8ttOKoPZClOnJZCwZDZD&quot;,</span>
+<span class="err">         &quot;category&quot;: &quot;Application&quot;,</span>
+<span class="err">         &quot;id&quot;: &quot;327845241634422&quot;</span>
+<span class="err">      }</span>
+<span class="err">   ],</span>
+<span class="err">   &quot;paging&quot;: {</span>
+<span class="err">      &quot;next&quot;: &quot;https://graph.facebook.com/me/accounts?access_token=BBBDGI</span>
+<span class="err">        b5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b</span>
+<span class="err">        6kAgtFNm3X4wezyvK7VWEZD&amp;limit=5000&amp;offset=5000&amp;_</span>
+<span class="err">  _after_id=327845241634422&quot;</span>
+<span class="err">   }</span>
+<span class="err">}</span></code></pre></div>
 
 <p>As you see, there are two sets of data related to my site.  Once relates to my Facebook Page and the other relates to the Facebook App of the same name.  The ACCESS_TOKEN you require is the one related to the Facebook Page: in my case its the the first once in the list.</p>
 
@@ -261,16 +259,16 @@
 
 <p>Anyway, I am using these codes in my App to post to my Facebook Page, so my Ruby on Rails code look like this:</p>
 
-<pre>def facebook(message)
-  fb_message = message(message) + ": " + job.short_url
-  me = FbGraph::User.me("BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6k
-	AgtFNm3X4wezyvK7VWEZD")
-  me.feed!(
-    :access_token =&gt; "BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6TPoNvYZAZBbzeDXC6TKTB8wLnX3
-		wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD",
-    :message =&gt; fb_message
-  )
-end</pre>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">facebook</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+  <span class="n">fb_message</span> <span class="o">=</span> <span class="n">message</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">job</span><span class="o">.</span><span class="n">short_url</span>
+  <span class="n">me</span> <span class="o">=</span> <span class="no">FbGraph</span><span class="o">::</span><span class="no">User</span><span class="o">.</span><span class="n">me</span><span class="p">(</span><span class="s2">&quot;BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6k</span>
+<span class="s2">	AgtFNm3X4wezyvK7VWEZD&quot;</span><span class="p">)</span>
+  <span class="n">me</span><span class="o">.</span><span class="n">feed!</span><span class="p">(</span>
+    <span class="ss">:access_token</span> <span class="o">=&gt;</span> <span class="s2">&quot;BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6TPoNvYZAZBbzeDXC6TKTB8wLnX3</span>
+<span class="s2">		wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD&quot;</span><span class="p">,</span>
+    <span class="ss">:message</span> <span class="o">=&gt;</span> <span class="n">fb_message</span>
+  <span class="p">)</span>
+<span class="k">end</span></code></pre></div>
 
 <p>As you can see, the Facebook Account ACCESS_TOKEN is used in the 3rd line of code, and the Facebook Page ACCESS_TOKEN is used in the 5th line of code.  The first one gains me access to my account and the second that allows access to the the Page’s feed.</p>
 
@@ -282,16 +280,16 @@ end</pre>
 
 
 <div class="author-image">
-	<img src="http://docgecko.com/images/bio-photo.jpg" alt="Dr Daren Warburton">
+	<img src="http://localhost:4000/images/bio-photo.jpg" alt="Dr Daren Warburton">
 </div><!-- ./author-image -->
 <div class="author-content">
 	<h3 class="author-name" >Written by <span itemprop="author">Dr Daren Warburton</span></h3>
 	<p class="author-bio"></p>
 </div><!-- ./author-content -->
 					<div class="inline-btn">
-	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Creating%20Facebook%20Account%20and%20Page%20access%20tokens%20for%20the%20fb_graph%20gem&amp;url=http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/&amp;via=drwarbie" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
-	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
-	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Creating%20Facebook%20Account%20and%20Page%20access%20tokens%20for%20the%20fb_graph%20gem&amp;url=http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/&amp;via=drwarbie" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
+	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
 </div><!-- /.share-this -->
 					<div class="page-meta">
 	<p>Updated <time datetime="2011-12-22T00:00:00Z" itemprop="datePublished">December 22, 2011</time></p>
@@ -342,26 +340,26 @@ end</pre>
       
         
       
-			<li><a href="http://docgecko.com/" >Home</a></li>
+			<li><a href="http://localhost:4000/" >Home</a></li>
 		
       
         
       
-			<li><a href="http://docgecko.com/about/" >About</a></li>
+			<li><a href="http://localhost:4000/about/" >About</a></li>
 		
       
         
       
-			<li><a href="http://docgecko.com/legal/" >Legal</a></li>
+			<li><a href="http://localhost:4000/legal/" >Legal</a></li>
 		
 		</ul>
 	</nav><!-- /.bottom-menu -->
-	<p class="copyright">&#169; 2015 <a href="http://docgecko.com">Dr Daren Warburton</a> powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/" rel="nofollow">Skinny Bones</a>.</p>
+	<p class="copyright">&#169; 2015 <a href="http://localhost:4000">Dr Daren Warburton</a> powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/" rel="nofollow">Skinny Bones</a>.</p>
 </footer>
 
 
-    <script src="http://docgecko.com/js/vendor/jquery-1.9.1.min.js"></script>
-    <script src="http://docgecko.com/js/main.js"></script>
+    <script src="http://localhost:4000/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="http://localhost:4000/js/main.js"></script>
 
     
 

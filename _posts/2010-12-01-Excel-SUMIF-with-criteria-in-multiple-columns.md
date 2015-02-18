@@ -14,7 +14,7 @@ The SUMIF function is designed to SUM one column if another column contains the 
 
 When criteria exists in more than 1 column, you have to take a completely different approach, e.g. when you have a situations such as given in the table below:
 
-<img src="/public/images/excel-sumif.png" alt="Excel SUMIF" width="230px" border="0"/>
+<img src="/images/excel-sumif.png" alt="Excel SUMIF" width="230px" border="0"/>
 
 Here I have 3 columns:
 
@@ -30,7 +30,9 @@ To do this you need to use an *Array Formula*, also known as a *CSE Formula* or 
 
 If you wanted to sum together all Lengths where the Code is 4a and the Score is 2, here is the formula you can to use:
 
-<pre>=SUM((B2:B11="4a")*(C2:C11="2")*A2:A11)</pre>
+{% highlight text %}
+=SUM((B2:B11="4a")*(C2:C11="2")*A2:A11)
+{% endhighlight %}
 
 This will find that rows 4 and 11 contain both criteria at the same time, and will thus return the sum of lengths in those columns, i.e. A4 and A11, which is 141.09m + 731.38m = 872.47m.
 

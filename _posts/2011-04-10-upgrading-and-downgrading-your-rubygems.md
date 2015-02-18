@@ -12,10 +12,14 @@ I just upgraded to rubygems version 1.8.1, which generates a large number of dep
 
 As such, for now I decided to revert back to version 1.7.2 of rubygems.  In order to downgrade your rubygems version, you have to do the following:
 
-<pre>gem uninstall rubygems-update -v 1.8.1
+{% highlight bash %}
+gem uninstall rubygems-update -v 1.8.1
 gem install rubygems-update -v 1.7.2
-update_rubygems _1.7.2_</pre>
+update_rubygems _1.7.2_
+{% endhighlight %}
 
 And, going the other way, if you wish to update to the latest version, simply run:
 
-<pre>gem update --system</pre>
+{% highlight bash %}
+gem update --system
+{% endhighlight %}
