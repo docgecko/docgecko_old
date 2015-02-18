@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  
+
+  <title>Doc Gecko</title>
+  <generator uri="https://github.com/jekyll/jekyll">Jekyll v2.4.0</generator>
+    <icon>http://localhost:4000/apple-touch-icon-precomposed.png</icon>
+  <subtitle>Risk-based Asset Performance Modelling</subtitle>
+  <link href="http://localhost:4000/atom.xml" rel="self"/>
+  <link href="http://localhost:4000/" rel="alternate" type="text/html"/>
+  <updated>2015-02-17T23:03:45+00:00</updated>
+  <id>http://localhost:4000/</id>
+  <author>
+    <name>Dr Daren Warburton</name>
+    <uri>http://localhost:4000/</uri>
+    <email>daren.sdw@gmail.com</email>
+  </author>
+
+  
+  <entry>
+    <title>Mongoid and Rails - Renaming data fields</title>
+    <link href="http://localhost:4000/articles/mongoid-and-rails---renaming-data-fields/"/>
+    <updated>2012-07-16T00:00:00+01:00</updated>
+    <id>http://localhost:4000/articles/mongoid-and-rails---renaming-data-fields</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;p&gt;I have been recently upgrading a luxury property rentals website that I have been developing with a partner of mine.  The site is Ruby on Rails based and uses the awesomeness of the NoSQL Mongo (using the Mongoid gem).&lt;/p&gt;
+
+&lt;p&gt;Changes to the site included not only adding fields to a Collection (similar to a Table of a SQL type database), but the renaming of fields in an existing production database.&lt;/p&gt;
+
+&lt;h2 id=&quot;so-how-to-change-existing-field-names&quot;&gt;So how to change existing field names?&lt;/h2&gt;
+
+&lt;p&gt;Fortunately, this is actually quite simple.&lt;/p&gt;
+
+&lt;p&gt;Firstly, begin by logging into the rails console of your site.  I use RVM so I always start my rails terminal commands with:&lt;/p&gt;
+
+&lt;pre&gt;bundle exec&lt;/pre&gt;
+
+&lt;p&gt;As such, to log into the rails console, the full command is:&lt;/p&gt;
+
+&lt;pre&gt;bundle exec rails c&lt;/pre&gt;
+
+&lt;p&gt;In my case, I had a collection called “Photo” with a field called “order_no”, which I began to dislike…lol.  Anyway, I wanted to change it to “position”.  (This field was used to know the position or order of photos related to a property).&lt;/p&gt;
+
+&lt;p&gt;So, to make the field name change, within the terminal you use the “db.collection.update” command as follows:&lt;/p&gt;
+
+&lt;pre&gt;db.collection.update( criteria, objNew, upsert, multi )&lt;/pre&gt;
+
+&lt;p&gt;with the following arguments:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;criteria&lt;/em&gt; - query which selects the record to update;
+&lt;em&gt;objNew&lt;/em&gt; - updated object or $ operators (e.g., $inc) which manipulate the object
+&lt;em&gt;upsert&lt;/em&gt; - if this should be an “upsert” operation; that is, if the record(s) do not exist, insert one. Upsert only inserts a single document.
+&lt;em&gt;multi&lt;/em&gt; - indicates if all documents matching criteria should be updated rather than just one. Can be useful with the $ operators below.&lt;/p&gt;
+
+&lt;p&gt;As such, in my case, I used the following to update my collection’s field name:&lt;/p&gt;
+
+&lt;pre&gt;Photo.collection.update({},
+	{&#39;$rename&#39; =&amp;gt; {&#39;order_no_&#39; =&amp;gt; &#39;position&#39;}},
+	multi: true, safe: true)&lt;/pre&gt;
+
+&lt;p&gt;Very simple, but very useful indeed!&lt;/p&gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Creating Facebook Account and Page access tokens for the fb_graph gem</title>
+    <link href="http://localhost:4000/articles/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/"/>
+    <updated>2011-12-22T00:00:00+00:00</updated>
+    <id>http://localhost:4000/articles/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;p&gt;I have a jobs board app built in Ruby on Rails (&lt;a href=&quot;http://infrajobshq.com&quot;&gt;http://infrajobshq.com&lt;/a&gt;).  As jobs are posted to the site by job advertisers, the app posts shortened information about each jobs to both Twitter and Facebook pages.&lt;/p&gt;
+
+&lt;p&gt;Recently, the app started failing when jobs were posted and I wasn’t sure why.  After investigation, I found that it was because I had changed by Facebook password.  I didn’t realise that the password is also associated with the ACCESS_TOKEN of Facebook Graph API.&lt;/p&gt;
+
+&lt;p&gt;So, again I needed to go through the process to generate the ACCESS_TOKEN for my ap As such, I thought I would post the process as it requires a little bit of work and is not necessarily an easy process to remember: I had to go through a number of pages on the Facebook Developers section in the Facebook Graph API (&lt;a href=&quot;https://developers.facebook.com/docs/reference/api/&quot;&gt;https://developers.facebook.com/docs/reference/api/&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The process is a &lt;strong&gt;2 step process&lt;/strong&gt;. Firstly you have to obtain an ACCESS_TOKEN that gains you access to your Facebook account.  Once you have that level of access, you then need to find the access token of your Facebook Page you would like to gain access to.  So here goes:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Step 1: Obtain Facebook Account Access Token&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to gain your Facebook account ACCESS TOKEN, you can use the following url (in your chosen browser):&lt;/p&gt;
+
+&lt;pre&gt;https://www.facebook.com/dialog/oauth?
+     client_id=YOUR_APP_ID&amp;amp;redirect_uri=YOUR_URL&amp;amp;scope=manage_pages&amp;amp;
+     response_type=token
+&lt;/pre&gt;
+
+&lt;p&gt;YOUR_APP_ID and YOUR_URL can be found on your personal Facebook Developers page, where you apps exist, i.e.:&lt;/p&gt;
+
+&lt;pre&gt;https://developers.facebook.com/apps&lt;/pre&gt;
+
+&lt;p&gt;As you can see from this page, under the Summary section, you can find your:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;App ID/API Key&lt;/li&gt;
+  &lt;li&gt;Site URL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, substituting YOUR_APP_ID with your “App ID/API Key” and YOUR_URL with your “Site URL”, you will have a url that looks something like this:&lt;/p&gt;
+
+&lt;pre&gt;https://www.facebook.com/dialog/oauth?
+     client_id=542148432111423&amp;amp;redirect_uri=http://infrajobshq.com/&amp;amp;scope=manage_pages&amp;amp;
+     response_type=token
+&lt;/pre&gt;
+
+&lt;p&gt;As you enter this url, you will be redirected to your site’s url, in my case to http://infrajobshq.com.  And now, as you will see from the url, it contains additional information after sites main address, e.g. it looks something like this:&lt;/p&gt;
+
+&lt;pre&gt;http://infrajobshq.com/#access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZA
+		 xQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD&amp;amp;expires_in=0&lt;/pre&gt;
+
+&lt;p&gt;As you can see, the url contains the ACCESS TOKEN for your Facebook Account.  You will need this for the next step.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Step 2: Obtain Facebook Page Access Token&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, to find the ACCESS TOKEN for your Facebook Page, use the following url:&lt;/p&gt;
+
+&lt;pre&gt;https://graph.facebook.com/me/accounts?access_token=ACCESS_TOKEN&lt;/pre&gt;
+
+&lt;p&gt;Simply replace the ACCESS_TOKEN with your Facebook Account ACCESS_TOKEN (and no need to include the bit on the end of the url that is ‘&amp;amp;expires_in=0’).  In my case, the url looks like this:&lt;/p&gt;
+
+&lt;pre&gt;https://graph.facebook.com/me/accounts?access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4O
+		 sI50LGIshL8fUZAxQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD&lt;/pre&gt;
+
+&lt;p&gt;Once you have entered this, you will be given a page that contains your Facebook Page ACCESS_TOKEN, e.g.:&lt;/p&gt;
+
+&lt;pre&gt;{
+   &quot;data&quot;: [
+      {
+         &quot;name&quot;: &quot;InfraJobs&quot;,
+         &quot;access_token&quot;: &quot;BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6TPoNvYZAZBbzeDXC6TKTB8w
+  LnX3wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD&quot;,
+         &quot;category&quot;: &quot;Consulting/business services&quot;,
+         &quot;id&quot;: &quot;130231394756745&quot;
+      },
+      {
+         &quot;name&quot;: &quot;InfraJobs&quot;,
+         &quot;access_token&quot;: &quot;AAADGIb8OYp4BAMJBpufj6LhsDq2W8JhCpQW6P1zjZCK32uwuK0njrRItJybbfFPXKEOsZCCf
+  4Sfjxkmk4dcJz43OQN8ttOKoPZClOnJZCwZDZD&quot;,
+         &quot;category&quot;: &quot;Application&quot;,
+         &quot;id&quot;: &quot;327845241634422&quot;
+      }
+   ],
+   &quot;paging&quot;: {
+      &quot;next&quot;: &quot;https://graph.facebook.com/me/accounts?access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps2
+  3xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD&amp;amp;limit=5000&amp;amp;offset=5000&amp;amp;_
+  _after_id=327845241634422&quot;
+   }
+}&lt;/pre&gt;
+
+&lt;p&gt;As you see, there are two sets of data related to my site.  Once relates to my Facebook Page and the other relates to the Facebook App of the same name.  The ACCESS_TOKEN you require is the one related to the Facebook Page: in my case its the the first once in the list.&lt;/p&gt;
+
+&lt;p&gt;Wow, so many ACCESS_TOKENs hey!&lt;/p&gt;
+
+&lt;p&gt;Anyway, I am using these codes in my App to post to my Facebook Page, so my Ruby on Rails code look like this:&lt;/p&gt;
+
+&lt;pre&gt;def facebook(message)
+  fb_message = message(message) + &quot;: &quot; + job.short_url
+  me = FbGraph::User.me(&quot;BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6k
+	AgtFNm3X4wezyvK7VWEZD&quot;)
+  me.feed!(
+    :access_token =&amp;gt; &quot;BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6TPoNvYZAZBbzeDXC6TKTB8wLnX3
+		wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD&quot;,
+    :message =&amp;gt; fb_message
+  )
+end&lt;/pre&gt;
+
+&lt;p&gt;As you can see, the Facebook Account ACCESS_TOKEN is used in the 3rd line of code, and the Facebook Page ACCESS_TOKEN is used in the 5th line of code.  The first one gains me access to my account and the second that allows access to the the Page’s feed.&lt;/p&gt;
+
+&lt;p&gt;Damn, finally got there.  I realise now that I was a little confused the first time I did this, simply as there were a few ACCESS_TOKENs knocking about, and that I wasn’t initially clear from the Facebook Developer Graph API Authentication which urls I should have been using.  But now after going through the process, its quite straight-forward.  Even so, glad its all written down here now :-).&lt;/p&gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>time.strftime(string) reminder</title>
+    <link href="http://localhost:4000/articles/time.strftime(string)-reminder/"/>
+    <updated>2011-06-23T00:00:00+01:00</updated>
+    <id>http://localhost:4000/articles/time.strftime(string)-reminder</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;p&gt;This is a major reminder, as I constantly have to search for this one whenever it comes to formatting dates and times in Ruby / Rails:&lt;/p&gt;
+
+&lt;pre&gt;%a - The abbreviated weekday name (``Sun&#39;&#39;)
+%A - The  full  weekday  name (``Sunday&#39;&#39;)
+%b - The abbreviated month name (``Jan&#39;&#39;)
+%B - The  full  month  name (``January&#39;&#39;)
+%c - The preferred local date and time representation
+%C - Century (20 in 2009)
+%d - Day of the month (01..31)
+%D - Date (%m/%d/%y)
+%e - Day of the month, blank-padded ( 1..31)
+%F - Equivalent to %Y-%m-%d (the ISO 8601 date format)
+%h - Equivalent to %b
+%H - Hour of the day, 24-hour clock (00..23)
+%I - Hour of the day, 12-hour clock (01..12)
+%j - Day of the year (001..366)
+%k - hour, 24-hour clock, blank-padded ( 0..23)
+%l - hour, 12-hour clock, blank-padded ( 0..12)
+%L - Millisecond of the second (000..999)
+%m - Month of the year (01..12)
+%M - Minute of the hour (00..59)
+%n - Newline (\n)
+%N - Fractional seconds digits, default is 9 digits (nanosecond)
+        %3N  millisecond (3 digits)
+        %6N  microsecond (6 digits)
+        %9N  nanosecond (9 digits)
+%p - Meridian indicator (``AM&#39;&#39;  or  ``PM&#39;&#39;)
+%P - Meridian indicator (``am&#39;&#39;  or  ``pm&#39;&#39;)
+%r - time, 12-hour (same as %I:%M:%S %p)
+%R - time, 24-hour (%H:%M)
+%s - Number of seconds since 1970-01-01 00:00:00 UTC.
+%S - Second of the minute (00..60)
+%t - Tab character (\t)
+%T - time, 24-hour (%H:%M:%S)
+%u - Day of the week as a decimal, Monday being 1. (1..7)
+%U - Week  number  of the current year,
+        starting with the first Sunday as the first
+        day of the first week (00..53)
+%v - VMS date (%e-%b-%Y)
+%V - Week number of year according to ISO 8601 (01..53)
+%W - Week  number  of the current year,
+        starting with the first Monday as the first
+        day of the first week (00..53)
+%w - Day of the week (Sunday is 0, 0..6)
+%x - Preferred representation for the date alone, no time
+%X - Preferred representation for the time alone, no date
+%y - Year without a century (00..99)
+%Y - Year with century
+%z - Time zone as  hour offset from UTC (e.g. +0900)
+%Z - Time zone name
+%% - Literal ``%&#39;&#39; character&lt;/pre&gt;
+
+&lt;pre&gt;t = Time.now                        #=&amp;gt; 2007-11-19 08:37:48 -0600
+t.strftime(&quot;Printed on %m/%d/%Y&quot;)   #=&amp;gt; &quot;Printed on 11/19/2007&quot;
+t.strftime(&quot;at %I:%M%p&quot;)            #=&amp;gt; &quot;at 08:37AM&quot;&lt;/pre&gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Kill rails server</title>
+    <link href="http://localhost:4000/articles/kill-rails-server/"/>
+    <updated>2011-05-27T00:00:00+01:00</updated>
+    <id>http://localhost:4000/articles/kill-rails-server</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;p&gt;This is just a brief reminder to myself of how to get rid of an already running rails server (for when it happens).&lt;/p&gt;
+
+&lt;p&gt;All you need to do in the console, within your application subdirectory is type:&lt;/p&gt;
+
+&lt;pre&gt;ps aux | grep rails&lt;/pre&gt;
+
+&lt;p&gt;After which you should see some output like this:&lt;/p&gt;
+
+&lt;pre&gt;Daren    89314   0.2  2.0  2551940  82732 s003  R+    2:38PM   2:38.93 /Users/Daren/.rvm/rubies/ruby-1.9.2-p180/bin/ruby script/rails s
+Daren     2881   0.1  0.1  2524112   3296 s005  R+   Wed06PM   2:11.62 /Users/Daren/.rvm/rubies/ruby-1.9.2-p180/bin/ruby script/rails c&lt;/pre&gt;
+
+&lt;p&gt;The second line is my running server that I need to shutdown, which can be done as follows:&lt;/p&gt;
+
+&lt;pre&gt;kill -9 #pid&lt;/pre&gt;
+
+&lt;p&gt;In my case, the pid is 89314, so I use the following:&lt;/p&gt;
+
+&lt;pre&gt;kill -9 2881&lt;/pre&gt;
+
+&lt;p&gt;You can check if the server is down, by again typing in:&lt;/p&gt;
+
+&lt;pre&gt;ps aux | grep rails&lt;/pre&gt;
+
+&lt;p&gt;In my case, I would see something like this:&lt;/p&gt;
+
+&lt;pre&gt;Daren     2881   0.1  0.1  2524112   3296 s005  R+   Wed06PM   2:11.62 /Users/Daren/.rvm/rubies/ruby-1.9.2-p180/bin/ruby script/rails c&lt;/pre&gt;
+
+&lt;p&gt;i.e the rails server process has been killed!&lt;/p&gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Upgrading and downgrading your rubygems</title>
+    <link href="http://localhost:4000/articles/upgrading-and-downgrading-your-rubygems/"/>
+    <updated>2011-04-10T00:00:00+01:00</updated>
+    <id>http://localhost:4000/articles/upgrading-and-downgrading-your-rubygems</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;p&gt;I just upgraded to rubygems version 1.8.1, which generates a large number of depreciation errors.  This is not a major problem as all still continues to work fine, expect for a couple of my gems: the sunspot (1.2.1) and sunspot_rails (1.2.1) gem.  Currently, under gem 1.8.1, I was unable to start or reindex solr.&lt;/p&gt;
+
+&lt;p&gt;As such, for now I decided to revert back to version 1.7.2 of rubygems.  In order to downgrade your rubygems version, you have to do the following:&lt;/p&gt;
+
+&lt;pre&gt;gem uninstall rubygems-update -v 1.8.1
+gem install rubygems-update -v 1.7.2
+update_rubygems _1.7.2_&lt;/pre&gt;
+
+&lt;p&gt;And, going the other way, if you wish to update to the latest version, simply run:&lt;/p&gt;
+
+&lt;pre&gt;gem update --system&lt;/pre&gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Excel SUMIF with criteria in multiple columns</title>
+    <link href="http://localhost:4000/articles/Excel-SUMIF-with-criteria-in-multiple-columns/"/>
+    <updated>2010-12-01T00:00:00+00:00</updated>
+    <id>http://localhost:4000/articles/Excel-SUMIF-with-criteria-in-multiple-columns</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;p&gt;The SUMIF function is designed to SUM one column if another column contains the some expected criteria.  For those who have already noticed, the SUMIF function does not work when your criteria exists in multiple columns.  This is an issue I just had to face.&lt;/p&gt;
+
+&lt;h2 id=&quot;multiple-column-criteria&quot;&gt;Multiple Column Criteria&lt;/h2&gt;
+
+&lt;p&gt;When criteria exists in more than 1 column, you have to take a completely different approach, e.g. when you have a situations such as given in the table below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/excel-sumif.png&quot; alt=&quot;Excel SUMIF&quot; width=&quot;230px&quot; border=&quot;0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here I have 3 columns:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Column A&lt;/em&gt; contains a &lt;em&gt;Length&lt;/em&gt; (in meters).&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Column B&lt;/em&gt; contains a &lt;em&gt;Code&lt;/em&gt; (i.e. 2, 4a &amp;amp; 4b)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Column C&lt;/em&gt; contains a &lt;em&gt;Score&lt;/em&gt; (1 to 4)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I need to check that both data in Columns B and C match the criteria of specific Code and Score, and for those that match both criteria, I need to SUM the lenths in Column A.&lt;/p&gt;
+
+&lt;p&gt;To do this you need to use an &lt;em&gt;Array Formula&lt;/em&gt;, also known as a &lt;em&gt;CSE Formula&lt;/em&gt; or even a &lt;em&gt;Super Formula&lt;/em&gt;.  This is a formula that requires you to press &lt;em&gt;Ctrl+Shift+Enter&lt;/em&gt; after typing it, instead of just Enter.&lt;/p&gt;
+
+&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;If you wanted to sum together all Lengths where the Code is 4a and the Score is 2, here is the formula you can to use:&lt;/p&gt;
+
+&lt;pre&gt;=SUM((B2:B11=&quot;4a&quot;)*(C2:C11=&quot;2&quot;)*A2:A11)&lt;/pre&gt;
+
+&lt;p&gt;This will find that rows 4 and 11 contain both criteria at the same time, and will thus return the sum of lengths in those columns, i.e. A4 and A11, which is 141.09m + 731.38m = 872.47m.&lt;/p&gt;
+
+&lt;p&gt;The formula looks a little strange and probably not what you’d expect; however, it works very well, as long as you remember to use &lt;em&gt;Ctrl+Shift+Enter&lt;/em&gt; instead of Enter when inputting the formula.&lt;/p&gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Excel cell validation - counting of non-blank cells</title>
+    <link href="http://localhost:4000/articles/excel-cell-validation-counting-of-non-blank-cells/"/>
+    <updated>2010-08-01T00:00:00+01:00</updated>
+    <id>http://localhost:4000/articles/excel-cell-validation-counting-of-non-blank-cells</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;p&gt;When building Excel-based models, more-and-more it is becoming clear that it is necessary to include such functionality as Validation and, to some degree, to the degree expected from web-based software.&lt;/p&gt;
+
+&lt;p&gt;With a model I am building at the moment, it has been necessary to reduce the chance of a user not including certain data that would consequently cause the model to crash when run.  As such, to reduce the likelihood of not entering all of the required data, I am building in checks that will then provide an error list if certain data is not entered.&lt;/p&gt;
+
+&lt;h2 id=&quot;error-checking&quot;&gt;Error Checking&lt;/h2&gt;
+
+&lt;p&gt;The error checking includes a count of remaining errors in an obvious place on the input excel sheet, i.e. in a place that can be easily checked by the user.&lt;/p&gt;
+
+&lt;p&gt;So my problem was that I need to firstly check each input to see if data has been entered or not.  So firstly I have a single column of cells (e.g. column A3:A()) that must be filled with data by the user.  In the column next to this (e.g. column B3:B8) is the data check.  This column contains an initial data check, i.e. Cell B3 contains the following (which can be copied down the other cells in column B):&lt;/p&gt;
+
+&lt;pre&gt;=IF(AND($A3&amp;lt;&amp;gt;&quot;&quot;),&quot;Please enter data&quot;, &quot;&quot;)&lt;/pre&gt;
+
+&lt;p&gt;So if the user fills in cell A3, B3 remains blank, i.e. it does not report an error.  However, if A3 does not contain data, the error appears in Cell B3 saying “Please enter data”&lt;/p&gt;
+
+&lt;h2 id=&quot;error-count&quot;&gt;Error Count&lt;/h2&gt;
+
+&lt;p&gt;So my actual problem was now to count the number of remaining errors, i.e. how to count the number of cells in column B that report the error.  Sounds easy to do right…well, thats what I thought.  I thought I have to do is count the number of NON BLANK cells in column B.  Well, for example using any of the following do not work:&lt;/p&gt;
+
+&lt;pre&gt;=COUNTIF(B3:B8,&amp;lt;&amp;gt;&quot;&quot;) or =COUNTIF(B3:B8,&quot;&amp;lt;&amp;gt;&quot;&quot;&quot;) or =COUNTIF(B3:B8,&quot;&amp;lt;&amp;gt;&quot;)&lt;/pre&gt;
+
+&lt;p&gt;In the end I used an approach offered by &lt;a href=&quot;http://pcsplace.com/tips-n-tricks/how-to-count-blank-and-non-blank-cells-in-ms-excel/&quot;&gt;Prasanth Chandra&lt;/a&gt;.  What you have to do is essentially count all of the cells in the range and remove from that the number of blank cells, as follows:&lt;/p&gt;
+
+&lt;pre&gt;=(ROWS(B3:B8)*COLUMNS(B3:B8))-COUNTBLANK(B3:B8)&lt;/pre&gt;
+
+&lt;p&gt;Looks complex, but works right away!&lt;/p&gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Welcome to Doc Gecko&#39;s Blog</title>
+    <link href="http://localhost:4000/articles/welcome-to-doc-geckos-blog/"/>
+    <updated>2010-07-11T00:00:00+01:00</updated>
+    <id>http://localhost:4000/articles/welcome-to-doc-geckos-blog</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;p&gt;I began modelling the performance of assets as part of my &lt;a href=&quot;http://ethos.bl.uk/OrderDetails.do?did=1&amp;amp;uin=uk.bl.ethos.391581&quot;&gt;PhD&lt;/a&gt;, when I developed a methodology for predicting the life of an ultra-reliable electro-actuator for deepwater oil &amp;amp; gas production, for &lt;a href=&quot;http://www.rotork.co.uk&quot;&gt;Rotork Actuation Ltd&lt;/a&gt;.  The results identified a number of design-risks that were subsequently modified in advance of actually building the actuator.&lt;/p&gt;
+
+&lt;p&gt;However, since 1999 I have been developing Asset and Performance-based Risk Models for commercial use, with great success and varied / continual use on both &lt;a href=&quot;http://en.wikipedia.org/wiki/Private_finance_initiative&quot;&gt;Private Finance Initiative&lt;/a&gt; (PFI) and &lt;a href=&quot;http://en.wikipedia.org/wiki/Public-private_partnership&quot;&gt;Public Private Partnership&lt;/a&gt; (PPP) projects, including:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dutch (Southern) High Speed Rail link&lt;/li&gt;
+  &lt;li&gt;Tube Lines Ltd&lt;/li&gt;
+  &lt;li&gt;Dutch Gelre line Tender&lt;/li&gt;
+  &lt;li&gt;M25 DBFO (Design Build Finance Operate)&lt;/li&gt;
+  &lt;li&gt;Crossrail&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There varied uses have included:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction of the Performance of Assets over a 30-year period (&lt;a href=&quot;http://www.tubelines.com&quot;&gt;Tube Lines Ltd&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Expert Maintenance Optimisation of a 7-year infrastructure rail concession (&lt;a href=&quot;http://www.spitzke.de/site/en/the-group/international/spitzke-spoorbouw/&quot;&gt;Spitzke Spoorbouw, S.A.&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Whole Life Costing of design options, over a 60-year period (&lt;a href=&quot;http://www.crossrail.com&quot;&gt;Crossrail&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Lane Availability Prediction of the UK &lt;a href=&quot;http://www.highways.gov.uk/roads/projects/24041.aspx&quot;&gt;M25&lt;/a&gt; Motorway&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Unlike the electro-actuator model, which was based on a particular failure mechanism (and thus at component level), the later models have been based on modelling entire infrastructure systems, such as Rail and Highways networks.&lt;/p&gt;
+
+&lt;p&gt;Furthermore, instead of focusing on on asset failure alone, they have linked failure, degradation and operations to the cost of interventions and contractual requirements, as found in many PPP and PFI projects, including costs of:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Major Capital Works (Modernisations and Upgrades)&lt;/li&gt;
+  &lt;li&gt;New Infrastructure&lt;/li&gt;
+  &lt;li&gt;Minor Upgrades&lt;/li&gt;
+  &lt;li&gt;Planned and Reactive Maintenance&lt;/li&gt;
+  &lt;li&gt;Performance-Penalties &amp;amp; Bonuses&lt;/li&gt;
+  &lt;li&gt;Operational Modifications (e.g. change to train routes and time-tabling)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The most recent models have been built using a combination of Microsoft Excel, Visual Basic for Application (&lt;a href=&quot;http://en.wikipedia.org/wiki/Visual_Basic_for_Applications&quot;&gt;VBA&lt;/a&gt;), Visual Basic (&lt;a href=&quot;http://en.wikipedia.org/wiki/Visual_Basic&quot;&gt;VB6+&lt;/a&gt;) and &lt;a href=&quot;http://www.palisade.com/&quot;&gt;Palisade’s&lt;/a&gt; &lt;a href=&quot;http://www.palisade.com/risk/default.asp&quot;&gt;@Risk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But now I am in the process of transferring the modelling approach to &lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As such, this blog will discuss both the Excel and Rails approaches to modelling, as well as a few other bits-n-bobs!&lt;/p&gt;
+
+    </content>
+  </entry>
+  
+
+</feed>

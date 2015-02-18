@@ -1,0 +1,16 @@
+# Footer navigation links
+
+- title: Home
+  url: /
+
+- title: Archive
+  url: /archive/
+
+- title: Feed
+  url: /atom.xml
+
+- title: About
+  url: /about/
+
+- title: Terms
+  url: /terms/

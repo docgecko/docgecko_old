@@ -1,0 +1,16 @@
+# Site navigation links
+
+- title: Archive
+  url: /archive/
+  excerpt: "Posts and articles."
+  image:
+
+- title: Feed
+  url: /atom.xml
+  excerpt: "An atom friendly feed of the artciles."
+  image:
+
+- title: About
+  url: /about/
+  excerpt: "Summary about Dr Daren Warburton."
+  image:

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>time.strftime(string) reminder • Doc Gecko</title>
+    <meta name="description" content="This is a major reminder, as I constantly have to search for this one whenever it comes to formatting dates and times in Ruby / Rails:
+
+">
+    <meta name="keywords" content="">
+    
+    
+    	<!-- Twitter Cards -->
+	<meta name="twitter:title" content="time.strftime(string) reminder">
+	<meta name="twitter:description" content="This is a major reminder, as I constantly have to search for this one whenever it comes to formatting dates and times in Ruby / Rails:
+
+">
+	<meta name="twitter:site" content="@drwarbie">
+	<meta name="twitter:creator" content="@drwarbie">
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:image" content="http://localhost:4000/images/">
+	
+	<!-- Open Graph -->
+	<meta property="og:locale" content="Lisbon, Portugal">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="time.strftime(string) reminder">
+	<meta property="og:description" content="This is a major reminder, as I constantly have to search for this one whenever it comes to formatting dates and times in Ruby / Rails:
+
+">
+	<meta property="og:url" content="http://localhost:4000/articles/time.strftime(string)-reminder/">
+	<meta property="og:site_name" content="Doc Gecko">
+
+    <link rel="canonical" href="http://localhost:4000/articles/time.strftime(string)-reminder/">
+
+    <link href="http://localhost:4000/atom.xml" type="application/atom+xml" rel="alternate" title="Doc Gecko Atom Feed">
+    <link href="http://localhost:4000/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <style>
+    .sliding-menu-content {
+      top: 0;
+      right: 0;
+      text-align: center;
+      visibility: hidden;
+      height: 100%;
+      width: 100%;
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      -o-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+    </style>
+
+    <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="http://localhost:4000/js/vendor/html5shiv.min.js"></script>
+      <script src="http://localhost:4000/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <header id="masthead">
+  <div class="inner-wrap">
+    <a href="http://localhost:4000/" class="site-title">Doc Gecko</a>
+    <nav role="navigation" class="menu top-menu">
+        <ul class="menu-item">
+	<li class="home"><a href="/">Doc Gecko</a></li>
+	
+    
+        
+    
+    <li><a href="http://localhost:4000/archive/" >Archive</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/atom.xml" >Feed</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/about/" >About</a></li>
+  
+</ul>
+
+    </nav>
+  </div><!-- /.inner-wrap -->
+</header><!-- /.masthead -->
+
+    <nav role="navigation" class="js-menu sliding-menu-content">
+	<ul class="menu-item">
+		<li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/archive/" class="title">Archive</a>
+			<p class="excerpt">Posts and articles.</p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/atom.xml" class="title">Feed</a>
+			<p class="excerpt">An atom friendly feed of the artciles.</p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/about/" class="title">About</a>
+			<p class="excerpt">Summary about Dr Daren Warburton.</p>
+		</li>
+	</ul>
+</nav>
+<button type="button" class="js-menu-trigger sliding-menu-button menulines-button x2" role="button" aria-label="Toggle Navigation">
+	<span class="menulines"></span>
+</button>
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+    <div id="page-wrapper">
+      <!--[if lt IE 9]><div class="upgrade notice-danger"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+
+      <div id="main" role="main">
+	<article class="wrap" itemscope itemtype="http://schema.org/Article">
+		
+		
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000" itemprop="url">
+        <span itemprop="title">Home</span>
+      </a> ›
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000/articles/" itemprop="url">
+        <span itemprop="title">Articles</span>
+      </a>
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
+
+		<div class="page-title">
+			<h1>time.strftime(string) reminder</h1>
+		</div>
+		<div class="inner-wrap">
+			<nav class="toc"></nav><!-- /.toc -->
+			<div id="content" class="page-content" itemprop="articleBody">
+				<p>This is a major reminder, as I constantly have to search for this one whenever it comes to formatting dates and times in Ruby / Rails:</p>
+
+<pre>%a - The abbreviated weekday name (``Sun'')
+%A - The  full  weekday  name (``Sunday'')
+%b - The abbreviated month name (``Jan'')
+%B - The  full  month  name (``January'')
+%c - The preferred local date and time representation
+%C - Century (20 in 2009)
+%d - Day of the month (01..31)
+%D - Date (%m/%d/%y)
+%e - Day of the month, blank-padded ( 1..31)
+%F - Equivalent to %Y-%m-%d (the ISO 8601 date format)
+%h - Equivalent to %b
+%H - Hour of the day, 24-hour clock (00..23)
+%I - Hour of the day, 12-hour clock (01..12)
+%j - Day of the year (001..366)
+%k - hour, 24-hour clock, blank-padded ( 0..23)
+%l - hour, 12-hour clock, blank-padded ( 0..12)
+%L - Millisecond of the second (000..999)
+%m - Month of the year (01..12)
+%M - Minute of the hour (00..59)
+%n - Newline (\n)
+%N - Fractional seconds digits, default is 9 digits (nanosecond)
+        %3N  millisecond (3 digits)
+        %6N  microsecond (6 digits)
+        %9N  nanosecond (9 digits)
+%p - Meridian indicator (``AM''  or  ``PM'')
+%P - Meridian indicator (``am''  or  ``pm'')
+%r - time, 12-hour (same as %I:%M:%S %p)
+%R - time, 24-hour (%H:%M)
+%s - Number of seconds since 1970-01-01 00:00:00 UTC.
+%S - Second of the minute (00..60)
+%t - Tab character (\t)
+%T - time, 24-hour (%H:%M:%S)
+%u - Day of the week as a decimal, Monday being 1. (1..7)
+%U - Week  number  of the current year,
+        starting with the first Sunday as the first
+        day of the first week (00..53)
+%v - VMS date (%e-%b-%Y)
+%V - Week number of year according to ISO 8601 (01..53)
+%W - Week  number  of the current year,
+        starting with the first Monday as the first
+        day of the first week (00..53)
+%w - Day of the week (Sunday is 0, 0..6)
+%x - Preferred representation for the date alone, no time
+%X - Preferred representation for the time alone, no date
+%y - Year without a century (00..99)
+%Y - Year with century
+%z - Time zone as  hour offset from UTC (e.g. +0900)
+%Z - Time zone name
+%% - Literal ``%'' character</pre>
+
+<pre>t = Time.now                        #=&gt; 2007-11-19 08:37:48 -0600
+t.strftime("Printed on %m/%d/%Y")   #=&gt; "Printed on 11/19/2007"
+t.strftime("at %I:%M%p")            #=&gt; "at 08:37AM"</pre>
+
+				<hr />
+				<footer class="page-footer">
+					
+
+
+<div class="author-image">
+	<img src="http://localhost:4000/images/bio-photo.jpg" alt="Dr Daren Warburton">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <span itemprop="author">Dr Daren Warburton</span></h3>
+	<p class="author-bio"></p>
+</div><!-- ./author-content -->
+					<div class="inline-btn">
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=time.strftime(string)%20reminder&amp;url=http://localhost:4000/articles/time.strftime(string)-reminder/&amp;via=drwarbie" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/time.strftime(string)-reminder/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
+	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=http://localhost:4000/articles/time.strftime(string)-reminder/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
+</div><!-- /.share-this -->
+					<div class="page-meta">
+	<p>Updated <time datetime="2011-06-23T00:00:00Z" itemprop="datePublished">June 23, 2011</time></p>
+</div><!-- /.page-meta -->
+				</footer><!-- /.footer -->
+				<aside>
+					
+				</aside>
+			</div><!-- /.content -->
+		</div><!-- /.inner-wrap -->
+		
+	</article><!-- ./wrap -->
+</div><!-- /#main -->
+
+
+      <footer role="contentinfo" id="site-footer">
+	<nav role="navigation" class="menu bottom-menu">
+		<ul class="menu-item">
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/" >Home</a></li>
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/archive/" >Archive</a></li>
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/atom.xml" >Feed</a></li>
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/about/" >About</a></li>
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/terms/" >Terms</a></li>
+		
+		</ul>
+	</nav><!-- /.bottom-menu -->
+	<p class="copyright">&#169; 2015 <a href="http://localhost:4000">Doc Gecko</a> powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/" rel="nofollow">Skinny Bones</a>.</p>
+</footer>
+
+    </div>
+
+    <script src="http://localhost:4000/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="http://localhost:4000/js/main.js"></script>
+
+    
+
+  </body>
+
+</html>
