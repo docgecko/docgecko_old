@@ -2,14 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>About • Dr Daren Warburton</title>
-    
-    
+    <title>Kill rails server • Dr Daren Warburton</title>
+    <meta name="description" content="This is just a brief reminder to myself of how to get rid of an already running rails server (for when it happens).
+
+">
+    <meta name="keywords" content="">
     
     
     	<!-- Twitter Cards -->
-	<meta name="twitter:title" content="About">
-	
+	<meta name="twitter:title" content="Kill rails server">
+	<meta name="twitter:description" content="This is just a brief reminder to myself of how to get rid of an already running rails server (for when it happens).
+
+">
 	<meta name="twitter:site" content="@drwarbie">
 	<meta name="twitter:creator" content="@drwarbie">
 	
@@ -19,12 +23,14 @@
 	<!-- Open Graph -->
 	<meta property="og:locale" content="Lisbon, Portugal">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="About">
-	
-	<meta property="og:url" content="http://localhost:4000/about/">
+	<meta property="og:title" content="Kill rails server">
+	<meta property="og:description" content="This is just a brief reminder to myself of how to get rid of an already running rails server (for when it happens).
+
+">
+	<meta property="og:url" content="http://localhost:4000/code/kill-rails-server/">
 	<meta property="og:site_name" content="Dr Daren Warburton">
 
-    <link rel="canonical" href="http://localhost:4000/about/">
+    <link rel="canonical" href="http://localhost:4000/code/kill-rails-server/">
 
     <link href="http://localhost:4000/atom.xml" type="application/atom+xml" rel="alternate" title="Dr Daren Warburton Atom Feed">
     <link href="http://localhost:4000/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
@@ -151,68 +157,109 @@
 	<article class="wrap" itemscope itemtype="http://schema.org/Article">
 		
 		
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000" itemprop="url">
+        <span itemprop="title">Home</span>
+      </a> ›
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000/code/" itemprop="url">
+        <span itemprop="title">Code</span>
+      </a>
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
 
 		<div class="page-title">
-			<h1>About</h1>
+			<h1>Kill rails server</h1>
 		</div>
 		<div class="inner-wrap">
 			<nav class="toc"></nav><!-- /.toc -->
 			<div id="content" class="page-content" itemprop="articleBody">
-				<h2 id="who-am-i">Who am I?</h2>
+				<p>This is just a brief reminder to myself of how to get rid of an already running rails server (for when it happens).</p>
 
-<p>Over the last 20 years I have operated at a management, commercial and technical advisor at strategic, board and senior management levels.  I have consulted on tenders, advised business consortia and government bodies, developed and implemented risk management strategies, optimized business and asset performance management and most notably developed and implemented performance- and risk-based expert business intelligence systems within tender and post-tender Public Private Partnership (PPP) and Private Finance Intiative (PFI) deals.</p>
+<p>All you need to do in the console, within your application subdirectory is type:</p>
 
-<p>I also hold a PhD in Risk Management from <a href="http://www.cranfield.ac.uk/doctoral/subject/engineering/page44849.html">Cranfield University</a> and I am considered a versatile partner who thrives on challenges and who has a talent for proactively identifying and providing manageable and sustainable solutions.</p>
+<pre>ps aux | grep rails</pre>
 
-<h3 id="most-recent-activities">Most recent activities</h3>
+<p>After which you should see some output like this:</p>
 
-<p>I have been involved in major infrastructure projects and tenders, including the following:</p>
+<pre>Daren    89314   0.2  2.0  2551940  82732 s003  R+    2:38PM   2:38.93 /Users/Daren/.rvm/rubies/ruby-1.9.2-p180/bin/ruby script/rails s
+Daren     2881   0.1  0.1  2524112   3296 s005  R+   Wed06PM   2:11.62 /Users/Daren/.rvm/rubies/ruby-1.9.2-p180/bin/ruby script/rails c</pre>
 
-<ul>
-  <li>DragadosSamsung JV <a href="http://www.thamestidewaytunnel.co.uk/">Thames Tideway Tunnel Tender</a>: successfully managed the delivery of a complete and fully compliant commercial bid submission: including pricing breakdown, fully cost-loaded program, risk register, and resource and cash-flow forecasts.</li>
-  <li>Scotia Roads Group <a href="http://www.transportscotland.gov.uk/project/m8-m73-m74-motorway-improvements">M73 M74 M8 Motorway Improvements Tender</a>: led the development of a custom risk-based performance model to predict the potential tender costs related to the PFI’s contractual Payment Mechanism during the initial 3 year construction phase: included potential Lane Occupations Charges, Lane Availability Failures and Restricted Services Faults.</li>
-  <li><a href="http://crossrail.co.uk">Crossrail Network Rails’ On-Network Works</a>: provided comprehensive Whole Life Cost modelling services for  associated with implementation of a new £16bn East-West railway for London.</li>
-  <li><a href="http://www.highways.gov.uk/roads/projects/24041.aspx">M25 DBFO</a> (Design Build Finance Operate) for the <a href="http://www.highways.gov.uk/">Highways Agency</a> and <a href="http://www.echarris.com/">EC Harris LLP</a></li>
-  <li>Dutch Gelre Rail Bid for <a href="http://www.spitzke.de/site/en/the-group/international/spitzke-spoorbouw/">Spitzke Spourbouw, S.A.</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/HSL-Zuid">Dutch HSL-Zuid</a></li>
-  <li><a href="http://www.tubelines.com">Tube Lines PPP</a></li>
-</ul>
+<p>The second line is my running server that I need to shutdown, which can be done as follows:</p>
 
-<p>I have also supported clients in Hong Kong, Singapore and Taiwan implementing Systems Assurance and Safety Management Systems, as part of Rail and Highways projects.</p>
+<pre>kill -9 #pid</pre>
 
-<h3 id="highlights">Highlights</h3>
+<p>In my case, the pid is 89314, so I use the following:</p>
 
-<p>My specialities include:</p>
+<pre>kill -9 2881</pre>
 
-<ul>
-  <li>Enterprise Risk Management</li>
-  <li>Proposal Tender Management &amp; Delivery</li>
-  <li>Asset Performance Management</li>
-  <li>Business Development</li>
-  <li>Investment Decision Support</li>
-  <li>Enterprise Models &amp; IT Strategy Development</li>
-  <li>Contractual Payment Mechanisms</li>
-  <li>PPP and PFI Infrastructure Projects &amp; Tenders</li>
-  <li>Whole Life Cost Modeling</li>
-  <li>Asset Management Systems</li>
-</ul>
+<p>You can check if the server is down, by again typing in:</p>
+
+<pre>ps aux | grep rails</pre>
+
+<p>In my case, I would see something like this:</p>
+
+<pre>Daren     2881   0.1  0.1  2524112   3296 s005  R+   Wed06PM   2:11.62 /Users/Daren/.rvm/rubies/ruby-1.9.2-p180/bin/ruby script/rails c</pre>
+
+<p>i.e the rails server process has been killed!</p>
 
 				<hr />
 				<footer class="page-footer">
 					
+
+
+<div class="author-image">
+	<img src="http://localhost:4000/images/bio-photo.jpg" alt="Dr Daren Warburton">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <span itemprop="author">Dr Daren Warburton</span></h3>
+	<p class="author-bio"></p>
+</div><!-- ./author-content -->
 					<div class="inline-btn">
-	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=About&amp;url=http://localhost:4000/about/&amp;via=drwarbie" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
-	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/about/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
-	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=http://localhost:4000/about/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Kill%20rails%20server&amp;url=http://localhost:4000/code/kill-rails-server/&amp;via=drwarbie" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/code/kill-rails-server/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
+	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=http://localhost:4000/code/kill-rails-server/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
 </div><!-- /.share-this -->
-					
+					<div class="page-meta">
+	<p>Updated <time datetime="2011-05-27T00:00:00Z" itemprop="datePublished">May 27, 2011</time></p>
+</div><!-- /.page-meta -->
 				</footer><!-- /.footer -->
 				<aside>
-					
+					<hr />
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	var disqus_shortname = 'docgecko';
+
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 				</aside>
 			</div><!-- /.content -->
 		</div><!-- /.inner-wrap -->
-		
+		<div class="ads"><style>
+.responsive-ads { width: 300px; height: 200px; }
+@media(min-width: 520px) { .responsive-ads { width: 468px; height: 60px; } }
+@media(min-width: 768px) { .responsive-ads { width: 160px; height: 600px; } }
+</style>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle responsive-ads"
+	style="display:inline-block"
+	data-ad-client="ca-pub-4659826301993758"
+	data-ad-slot="1276587625"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div><!-- /.ads -->
 	</article><!-- ./wrap -->
 </div><!-- /#main -->
 

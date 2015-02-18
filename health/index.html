@@ -1,0 +1,12 @@
+---
+layout: archive
+permalink: /health/
+title: "Health"
+excerpt: "Everything about my health and training activities."
+---
+
+<div class="tiles">
+  {% for post in site.categories.health %}
+    {% include post-grid.html %}
+  {% endfor %}
+</div><!-- /.tiles -->

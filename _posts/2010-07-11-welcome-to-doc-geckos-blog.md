@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Welcome to Doc Gecko's Blog"
-categories: articles
+categories: blog
 comments: true
 ads: true
 image:

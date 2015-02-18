@@ -1,0 +1,16 @@
+# Header navigation links
+
+- title: "My Blog"
+  url: /blog/
+
+- title: "Code solutions"
+  url: /code/
+
+- title: "Excel & risk models"
+  url: /models/
+
+- title: "Health & fitness"
+  url: /health/
+
+- title: "About me"
+  url: /about/

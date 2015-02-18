@@ -29,3 +29,11 @@
 @import "animations";
 @import "layout";
 @import "pygments";
+
+.entry-wrapper {
+  max-width: 960px;
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-bottom: 3em;
+  margin: 0 auto;
+}

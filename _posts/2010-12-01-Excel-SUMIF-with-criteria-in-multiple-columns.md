@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Excel SUMIF with criteria in multiple columns"
-categories: articles
+categories: models
 comments: true
 ads: true
 image:

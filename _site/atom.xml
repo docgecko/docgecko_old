@@ -3,13 +3,13 @@
 
   
 
-  <title>Doc Gecko</title>
+  <title>Dr Daren Warburton</title>
   <generator uri="https://github.com/jekyll/jekyll">Jekyll v2.4.0</generator>
     <icon>http://localhost:4000/apple-touch-icon-precomposed.png</icon>
-  <subtitle>Risk-based Asset Performance Modelling</subtitle>
+  <subtitle>Specialist Risk & Asset Performance Management Advisor</subtitle>
   <link href="http://localhost:4000/atom.xml" rel="self"/>
   <link href="http://localhost:4000/" rel="alternate" type="text/html"/>
-  <updated>2015-02-18T11:20:28+00:00</updated>
+  <updated>2015-02-18T16:50:42+00:00</updated>
   <id>http://localhost:4000/</id>
   <author>
     <name>Dr Daren Warburton</name>
@@ -20,9 +20,9 @@
   
   <entry>
     <title>Mongoid and Rails - Renaming data fields</title>
-    <link href="http://localhost:4000/articles/mongoid-and-rails---renaming-data-fields/"/>
+    <link href="http://localhost:4000/code/mongoid-and-rails---renaming-data-fields/"/>
     <updated>2012-07-16T00:00:00+01:00</updated>
-    <id>http://localhost:4000/articles/mongoid-and-rails---renaming-data-fields</id>
+    <id>http://localhost:4000/code/mongoid-and-rails---renaming-data-fields</id>
     <author>
       <name>Dr Daren Warburton</name>
       <uri>http://localhost:4000/</uri>
@@ -72,9 +72,9 @@
   
   <entry>
     <title>Creating Facebook Account and Page access tokens for the fb_graph gem</title>
-    <link href="http://localhost:4000/articles/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/"/>
+    <link href="http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/"/>
     <updated>2011-12-22T00:00:00+00:00</updated>
-    <id>http://localhost:4000/articles/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem</id>
+    <id>http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem</id>
     <author>
       <name>Dr Daren Warburton</name>
       <uri>http://localhost:4000/</uri>
@@ -187,9 +187,9 @@ end&lt;/pre&gt;
   
   <entry>
     <title>time.strftime(string) reminder</title>
-    <link href="http://localhost:4000/articles/time.strftime(string)-reminder/"/>
+    <link href="http://localhost:4000/code/time.strftime(string)-reminder/"/>
     <updated>2011-06-23T00:00:00+01:00</updated>
-    <id>http://localhost:4000/articles/time.strftime(string)-reminder</id>
+    <id>http://localhost:4000/code/time.strftime(string)-reminder</id>
     <author>
       <name>Dr Daren Warburton</name>
       <uri>http://localhost:4000/</uri>
@@ -258,9 +258,9 @@ t.strftime(&quot;at %I:%M%p&quot;)            #=&amp;gt; &quot;at 08:37AM&quot;&
   
   <entry>
     <title>Kill rails server</title>
-    <link href="http://localhost:4000/articles/kill-rails-server/"/>
+    <link href="http://localhost:4000/code/kill-rails-server/"/>
     <updated>2011-05-27T00:00:00+01:00</updated>
-    <id>http://localhost:4000/articles/kill-rails-server</id>
+    <id>http://localhost:4000/code/kill-rails-server</id>
     <author>
       <name>Dr Daren Warburton</name>
       <uri>http://localhost:4000/</uri>
@@ -302,9 +302,9 @@ Daren     2881   0.1  0.1  2524112   3296 s005  R+   Wed06PM   2:11.62 /Users/Da
   
   <entry>
     <title>Upgrading and downgrading your rubygems</title>
-    <link href="http://localhost:4000/articles/upgrading-and-downgrading-your-rubygems/"/>
+    <link href="http://localhost:4000/code/upgrading-and-downgrading-your-rubygems/"/>
     <updated>2011-04-10T00:00:00+01:00</updated>
-    <id>http://localhost:4000/articles/upgrading-and-downgrading-your-rubygems</id>
+    <id>http://localhost:4000/code/upgrading-and-downgrading-your-rubygems</id>
     <author>
       <name>Dr Daren Warburton</name>
       <uri>http://localhost:4000/</uri>
@@ -329,9 +329,9 @@ update_rubygems _1.7.2_&lt;/pre&gt;
   
   <entry>
     <title>Excel SUMIF with criteria in multiple columns</title>
-    <link href="http://localhost:4000/articles/Excel-SUMIF-with-criteria-in-multiple-columns/"/>
+    <link href="http://localhost:4000/models/Excel-SUMIF-with-criteria-in-multiple-columns/"/>
     <updated>2010-12-01T00:00:00+00:00</updated>
-    <id>http://localhost:4000/articles/Excel-SUMIF-with-criteria-in-multiple-columns</id>
+    <id>http://localhost:4000/models/Excel-SUMIF-with-criteria-in-multiple-columns</id>
     <author>
       <name>Dr Daren Warburton</name>
       <uri>http://localhost:4000/</uri>
@@ -374,9 +374,9 @@ update_rubygems _1.7.2_&lt;/pre&gt;
   
   <entry>
     <title>Excel cell validation - counting of non-blank cells</title>
-    <link href="http://localhost:4000/articles/excel-cell-validation-counting-of-non-blank-cells/"/>
+    <link href="http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/"/>
     <updated>2010-08-01T00:00:00+01:00</updated>
-    <id>http://localhost:4000/articles/excel-cell-validation-counting-of-non-blank-cells</id>
+    <id>http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells</id>
     <author>
       <name>Dr Daren Warburton</name>
       <uri>http://localhost:4000/</uri>
@@ -415,9 +415,9 @@ update_rubygems _1.7.2_&lt;/pre&gt;
   
   <entry>
     <title>Welcome to Doc Gecko&#39;s Blog</title>
-    <link href="http://localhost:4000/articles/welcome-to-doc-geckos-blog/"/>
+    <link href="http://localhost:4000/blog/welcome-to-doc-geckos-blog/"/>
     <updated>2010-07-11T00:00:00+01:00</updated>
-    <id>http://localhost:4000/articles/welcome-to-doc-geckos-blog</id>
+    <id>http://localhost:4000/blog/welcome-to-doc-geckos-blog</id>
     <author>
       <name>Dr Daren Warburton</name>
       <uri>http://localhost:4000/</uri>

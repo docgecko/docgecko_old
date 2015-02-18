@@ -1,0 +1,12 @@
+---
+layout: archive
+permalink: /blog/
+title: "Blog-of-sorts"
+excerpt: "Everthing else of interest :-)"
+---
+
+<div class="tiles">
+  {% for post in site.categories.blog %}
+    {% include post-grid.html %}
+  {% endfor %}
+</div><!-- /.tiles -->

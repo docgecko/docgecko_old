@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Creating Facebook Account and Page access tokens for the fb_graph gem • Dr Daren Warburton</title>
+    <meta name="description" content="I have a jobs board app built in Ruby on Rails (http://infrajobshq.com).  As jobs are posted to the site by job advertisers, the app posts shortened information about each jobs to both Twitter and Facebook pages.
+
+">
+    <meta name="keywords" content="">
+    
+    
+    	<!-- Twitter Cards -->
+	<meta name="twitter:title" content="Creating Facebook Account and Page access tokens for the fb_graph gem">
+	<meta name="twitter:description" content="I have a jobs board app built in Ruby on Rails (http://infrajobshq.com).  As jobs are posted to the site by job advertisers, the app posts shortened information about each jobs to both Twitter and Facebook pages.
+
+">
+	<meta name="twitter:site" content="@drwarbie">
+	<meta name="twitter:creator" content="@drwarbie">
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:image" content="http://localhost:4000/images/">
+	
+	<!-- Open Graph -->
+	<meta property="og:locale" content="Lisbon, Portugal">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Creating Facebook Account and Page access tokens for the fb_graph gem">
+	<meta property="og:description" content="I have a jobs board app built in Ruby on Rails (http://infrajobshq.com).  As jobs are posted to the site by job advertisers, the app posts shortened information about each jobs to both Twitter and Facebook pages.
+
+">
+	<meta property="og:url" content="http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/">
+	<meta property="og:site_name" content="Dr Daren Warburton">
+
+    <link rel="canonical" href="http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/">
+
+    <link href="http://localhost:4000/atom.xml" type="application/atom+xml" rel="alternate" title="Dr Daren Warburton Atom Feed">
+    <link href="http://localhost:4000/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <style>
+    .sliding-menu-content {
+      top: 0;
+      right: 0;
+      text-align: center;
+      visibility: hidden;
+      height: 100%;
+      width: 100%;
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      -o-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+    </style>
+
+    <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="http://localhost:4000/js/vendor/html5shiv.min.js"></script>
+      <script src="http://localhost:4000/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <header id="masthead">
+  <div class="inner-wrap">
+    <a href="http://localhost:4000/" class="site-title">Dr Daren Warburton</a>
+    <nav role="navigation" class="menu top-menu">
+        <ul class="menu-item">
+	<li class="home"><a href="/">Dr Daren Warburton</a></li>
+	
+    
+        
+    
+    <li><a href="http://localhost:4000/blog/" >Blog</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/code/" >Code</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/models/" >Models</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/health/" >Health</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/about/" >About</a></li>
+  
+</ul>
+
+    </nav>
+  </div><!-- /.inner-wrap -->
+</header><!-- /.masthead -->
+
+    <nav role="navigation" class="js-menu sliding-menu-content">
+	<ul class="menu-item">
+		<li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/blog/" class="title">Blog</a>
+			<p class="excerpt">My general thoughts and discussions.</p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/code/" class="title">Code</a>
+			<p class="excerpt">A selection of useful code snippets and uses</p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/models/" class="title">Models</a>
+			<p class="excerpt">A selection of useful Excel </p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/health/" class="title">Health</a>
+			<p class="excerpt">I love to swim, bike and run!</p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/about/" class="title">About</a>
+			<p class="excerpt">Found out or contact Daren Warburton.</p>
+		</li>
+	</ul>
+</nav>
+<button type="button" class="js-menu-trigger sliding-menu-button menulines-button x2" role="button" aria-label="Toggle Navigation">
+	<span class="menulines"></span>
+</button>
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+    <!--[if lt IE 9]><div class="upgrade notice-danger"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+
+    <div id="main" role="main">
+	<article class="wrap" itemscope itemtype="http://schema.org/Article">
+		
+		
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000" itemprop="url">
+        <span itemprop="title">Home</span>
+      </a> ›
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000/code/" itemprop="url">
+        <span itemprop="title">Code</span>
+      </a>
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
+
+		<div class="page-title">
+			<h1>Creating Facebook Account and Page access tokens for the fb_graph gem</h1>
+		</div>
+		<div class="inner-wrap">
+			<nav class="toc"></nav><!-- /.toc -->
+			<div id="content" class="page-content" itemprop="articleBody">
+				<p>I have a jobs board app built in Ruby on Rails (<a href="http://infrajobshq.com">http://infrajobshq.com</a>).  As jobs are posted to the site by job advertisers, the app posts shortened information about each jobs to both Twitter and Facebook pages.</p>
+
+<p>Recently, the app started failing when jobs were posted and I wasn’t sure why.  After investigation, I found that it was because I had changed by Facebook password.  I didn’t realise that the password is also associated with the ACCESS_TOKEN of Facebook Graph API.</p>
+
+<p>So, again I needed to go through the process to generate the ACCESS_TOKEN for my ap As such, I thought I would post the process as it requires a little bit of work and is not necessarily an easy process to remember: I had to go through a number of pages on the Facebook Developers section in the Facebook Graph API (<a href="https://developers.facebook.com/docs/reference/api/">https://developers.facebook.com/docs/reference/api/</a>).</p>
+
+<p>The process is a <strong>2 step process</strong>. Firstly you have to obtain an ACCESS_TOKEN that gains you access to your Facebook account.  Once you have that level of access, you then need to find the access token of your Facebook Page you would like to gain access to.  So here goes:</p>
+
+<p><strong>1. Step 1: Obtain Facebook Account Access Token</strong></p>
+
+<p>In order to gain your Facebook account ACCESS TOKEN, you can use the following url (in your chosen browser):</p>
+
+<pre>https://www.facebook.com/dialog/oauth?
+     client_id=YOUR_APP_ID&amp;redirect_uri=YOUR_URL&amp;scope=manage_pages&amp;
+     response_type=token
+</pre>
+
+<p>YOUR_APP_ID and YOUR_URL can be found on your personal Facebook Developers page, where you apps exist, i.e.:</p>
+
+<pre>https://developers.facebook.com/apps</pre>
+
+<p>As you can see from this page, under the Summary section, you can find your:</p>
+
+<ul>
+  <li>App ID/API Key</li>
+  <li>Site URL</li>
+</ul>
+
+<p>So, substituting YOUR_APP_ID with your “App ID/API Key” and YOUR_URL with your “Site URL”, you will have a url that looks something like this:</p>
+
+<pre>https://www.facebook.com/dialog/oauth?
+     client_id=542148432111423&amp;redirect_uri=http://infrajobshq.com/&amp;scope=manage_pages&amp;
+     response_type=token
+</pre>
+
+<p>As you enter this url, you will be redirected to your site’s url, in my case to http://infrajobshq.com.  And now, as you will see from the url, it contains additional information after sites main address, e.g. it looks something like this:</p>
+
+<pre>http://infrajobshq.com/#access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZA
+		 xQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD&amp;expires_in=0</pre>
+
+<p>As you can see, the url contains the ACCESS TOKEN for your Facebook Account.  You will need this for the next step.</p>
+
+<p><strong>2. Step 2: Obtain Facebook Page Access Token</strong></p>
+
+<p>Now, to find the ACCESS TOKEN for your Facebook Page, use the following url:</p>
+
+<pre>https://graph.facebook.com/me/accounts?access_token=ACCESS_TOKEN</pre>
+
+<p>Simply replace the ACCESS_TOKEN with your Facebook Account ACCESS_TOKEN (and no need to include the bit on the end of the url that is ‘&amp;expires_in=0’).  In my case, the url looks like this:</p>
+
+<pre>https://graph.facebook.com/me/accounts?access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4O
+		 sI50LGIshL8fUZAxQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD</pre>
+
+<p>Once you have entered this, you will be given a page that contains your Facebook Page ACCESS_TOKEN, e.g.:</p>
+
+<pre>{
+   "data": [
+      {
+         "name": "InfraJobs",
+         "access_token": "BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6TPoNvYZAZBbzeDXC6TKTB8w
+  LnX3wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD",
+         "category": "Consulting/business services",
+         "id": "130231394756745"
+      },
+      {
+         "name": "InfraJobs",
+         "access_token": "AAADGIb8OYp4BAMJBpufj6LhsDq2W8JhCpQW6P1zjZCK32uwuK0njrRItJybbfFPXKEOsZCCf
+  4Sfjxkmk4dcJz43OQN8ttOKoPZClOnJZCwZDZD",
+         "category": "Application",
+         "id": "327845241634422"
+      }
+   ],
+   "paging": {
+      "next": "https://graph.facebook.com/me/accounts?access_token=BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps2
+  3xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6kAgtFNm3X4wezyvK7VWEZD&amp;limit=5000&amp;offset=5000&amp;_
+  _after_id=327845241634422"
+   }
+}</pre>
+
+<p>As you see, there are two sets of data related to my site.  Once relates to my Facebook Page and the other relates to the Facebook App of the same name.  The ACCESS_TOKEN you require is the one related to the Facebook Page: in my case its the the first once in the list.</p>
+
+<p>Wow, so many ACCESS_TOKENs hey!</p>
+
+<p>Anyway, I am using these codes in my App to post to my Facebook Page, so my Ruby on Rails code look like this:</p>
+
+<pre>def facebook(message)
+  fb_message = message(message) + ": " + job.short_url
+  me = FbGraph::User.me("BBBDGIb5OYp4BAJK0qYw8qw3fY4uPps23xfMpvobHvVCN4OsI50LGIshL8fUZAxQsgnUt45b6k
+	AgtFNm3X4wezyvK7VWEZD")
+  me.feed!(
+    :access_token =&gt; "BBBDGIb8OUp4BDNWFlERsVcEaeS1lylDAqpN3FtDET4L2fdeS6TPoNvYZAZBbzeDXC6TKTB8wLnX3
+		wPZA0HU8n6pvZCmRndGwOcQmvU1T4BAZDZD",
+    :message =&gt; fb_message
+  )
+end</pre>
+
+<p>As you can see, the Facebook Account ACCESS_TOKEN is used in the 3rd line of code, and the Facebook Page ACCESS_TOKEN is used in the 5th line of code.  The first one gains me access to my account and the second that allows access to the the Page’s feed.</p>
+
+<p>Damn, finally got there.  I realise now that I was a little confused the first time I did this, simply as there were a few ACCESS_TOKENs knocking about, and that I wasn’t initially clear from the Facebook Developer Graph API Authentication which urls I should have been using.  But now after going through the process, its quite straight-forward.  Even so, glad its all written down here now :-).</p>
+
+				<hr />
+				<footer class="page-footer">
+					
+
+
+<div class="author-image">
+	<img src="http://localhost:4000/images/bio-photo.jpg" alt="Dr Daren Warburton">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <span itemprop="author">Dr Daren Warburton</span></h3>
+	<p class="author-bio"></p>
+</div><!-- ./author-content -->
+					<div class="inline-btn">
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Creating%20Facebook%20Account%20and%20Page%20access%20tokens%20for%20the%20fb_graph%20gem&amp;url=http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/&amp;via=drwarbie" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
+	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
+</div><!-- /.share-this -->
+					<div class="page-meta">
+	<p>Updated <time datetime="2011-12-22T00:00:00Z" itemprop="datePublished">December 22, 2011</time></p>
+</div><!-- /.page-meta -->
+				</footer><!-- /.footer -->
+				<aside>
+					<hr />
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	var disqus_shortname = 'docgecko';
+
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+				</aside>
+			</div><!-- /.content -->
+		</div><!-- /.inner-wrap -->
+		<div class="ads"><style>
+.responsive-ads { width: 300px; height: 200px; }
+@media(min-width: 520px) { .responsive-ads { width: 468px; height: 60px; } }
+@media(min-width: 768px) { .responsive-ads { width: 160px; height: 600px; } }
+</style>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle responsive-ads"
+	style="display:inline-block"
+	data-ad-client="ca-pub-4659826301993758"
+	data-ad-slot="1276587625"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div><!-- /.ads -->
+	</article><!-- ./wrap -->
+</div><!-- /#main -->
+
+
+    <footer role="contentinfo" id="site-footer">
+	<nav role="navigation" class="menu bottom-menu">
+		<ul class="menu-item">
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/" >Home</a></li>
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/about/" >About</a></li>
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/legal/" >Legal</a></li>
+		
+		</ul>
+	</nav><!-- /.bottom-menu -->
+	<p class="copyright">&#169; 2015 <a href="http://localhost:4000">Dr Daren Warburton</a> powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/" rel="nofollow">Skinny Bones</a>.</p>
+</footer>
+
+
+    <script src="http://localhost:4000/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="http://localhost:4000/js/main.js"></script>
+
+    
+
+  </body>
+
+</html>

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Creating Facebook Account and Page access tokens for the fb_graph gem"
-categories: articles
+categories: code
 comments: true
 ads: true
 image:

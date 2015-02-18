@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Excel cell validation - counting of non-blank cells • Dr Daren Warburton</title>
+    <meta name="description" content="When building Excel-based models, more-and-more it is becoming clear that it is necessary to include such functionality as Validation and, to some degree, to the degree expected from web-based software.
+
+">
+    <meta name="keywords" content="">
+    
+    
+    	<!-- Twitter Cards -->
+	<meta name="twitter:title" content="Excel cell validation - counting of non-blank cells">
+	<meta name="twitter:description" content="When building Excel-based models, more-and-more it is becoming clear that it is necessary to include such functionality as Validation and, to some degree, to the degree expected from web-based software.
+
+">
+	<meta name="twitter:site" content="@drwarbie">
+	<meta name="twitter:creator" content="@drwarbie">
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:image" content="http://localhost:4000/images/">
+	
+	<!-- Open Graph -->
+	<meta property="og:locale" content="Lisbon, Portugal">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Excel cell validation - counting of non-blank cells">
+	<meta property="og:description" content="When building Excel-based models, more-and-more it is becoming clear that it is necessary to include such functionality as Validation and, to some degree, to the degree expected from web-based software.
+
+">
+	<meta property="og:url" content="http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/">
+	<meta property="og:site_name" content="Dr Daren Warburton">
+
+    <link rel="canonical" href="http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/">
+
+    <link href="http://localhost:4000/atom.xml" type="application/atom+xml" rel="alternate" title="Dr Daren Warburton Atom Feed">
+    <link href="http://localhost:4000/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <style>
+    .sliding-menu-content {
+      top: 0;
+      right: 0;
+      text-align: center;
+      visibility: hidden;
+      height: 100%;
+      width: 100%;
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      -o-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+    </style>
+
+    <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="http://localhost:4000/js/vendor/html5shiv.min.js"></script>
+      <script src="http://localhost:4000/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <header id="masthead">
+  <div class="inner-wrap">
+    <a href="http://localhost:4000/" class="site-title">Dr Daren Warburton</a>
+    <nav role="navigation" class="menu top-menu">
+        <ul class="menu-item">
+	<li class="home"><a href="/">Dr Daren Warburton</a></li>
+	
+    
+        
+    
+    <li><a href="http://localhost:4000/blog/" >Blog</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/code/" >Code</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/models/" >Models</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/health/" >Health</a></li>
+  
+    
+        
+    
+    <li><a href="http://localhost:4000/about/" >About</a></li>
+  
+</ul>
+
+    </nav>
+  </div><!-- /.inner-wrap -->
+</header><!-- /.masthead -->
+
+    <nav role="navigation" class="js-menu sliding-menu-content">
+	<ul class="menu-item">
+		<li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/blog/" class="title">Blog</a>
+			<p class="excerpt">My general thoughts and discussions.</p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/code/" class="title">Code</a>
+			<p class="excerpt">A selection of useful code snippets and uses</p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/models/" class="title">Models</a>
+			<p class="excerpt">A selection of useful Excel </p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/health/" class="title">Health</a>
+			<p class="excerpt">I love to swim, bike and run!</p>
+		</li><li>
+      
+        
+      
+			
+			<a href="http://localhost:4000/about/" class="title">About</a>
+			<p class="excerpt">Found out or contact Daren Warburton.</p>
+		</li>
+	</ul>
+</nav>
+<button type="button" class="js-menu-trigger sliding-menu-button menulines-button x2" role="button" aria-label="Toggle Navigation">
+	<span class="menulines"></span>
+</button>
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+    <!--[if lt IE 9]><div class="upgrade notice-danger"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+
+    <div id="main" role="main">
+	<article class="wrap" itemscope itemtype="http://schema.org/Article">
+		
+		
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000" itemprop="url">
+        <span itemprop="title">Home</span>
+      </a> ›
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://localhost:4000/models/" itemprop="url">
+        <span itemprop="title">Models</span>
+      </a>
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
+
+		<div class="page-title">
+			<h1>Excel cell validation - counting of non-blank cells</h1>
+		</div>
+		<div class="inner-wrap">
+			<nav class="toc"></nav><!-- /.toc -->
+			<div id="content" class="page-content" itemprop="articleBody">
+				<p>When building Excel-based models, more-and-more it is becoming clear that it is necessary to include such functionality as Validation and, to some degree, to the degree expected from web-based software.</p>
+
+<p>With a model I am building at the moment, it has been necessary to reduce the chance of a user not including certain data that would consequently cause the model to crash when run.  As such, to reduce the likelihood of not entering all of the required data, I am building in checks that will then provide an error list if certain data is not entered.</p>
+
+<h2 id="error-checking">Error Checking</h2>
+
+<p>The error checking includes a count of remaining errors in an obvious place on the input excel sheet, i.e. in a place that can be easily checked by the user.</p>
+
+<p>So my problem was that I need to firstly check each input to see if data has been entered or not.  So firstly I have a single column of cells (e.g. column A3:A()) that must be filled with data by the user.  In the column next to this (e.g. column B3:B8) is the data check.  This column contains an initial data check, i.e. Cell B3 contains the following (which can be copied down the other cells in column B):</p>
+
+<pre>=IF(AND($A3&lt;&gt;""),"Please enter data", "")</pre>
+
+<p>So if the user fills in cell A3, B3 remains blank, i.e. it does not report an error.  However, if A3 does not contain data, the error appears in Cell B3 saying “Please enter data”</p>
+
+<h2 id="error-count">Error Count</h2>
+
+<p>So my actual problem was now to count the number of remaining errors, i.e. how to count the number of cells in column B that report the error.  Sounds easy to do right…well, thats what I thought.  I thought I have to do is count the number of NON BLANK cells in column B.  Well, for example using any of the following do not work:</p>
+
+<pre>=COUNTIF(B3:B8,&lt;&gt;"") or =COUNTIF(B3:B8,"&lt;&gt;""") or =COUNTIF(B3:B8,"&lt;&gt;")</pre>
+
+<p>In the end I used an approach offered by <a href="http://pcsplace.com/tips-n-tricks/how-to-count-blank-and-non-blank-cells-in-ms-excel/">Prasanth Chandra</a>.  What you have to do is essentially count all of the cells in the range and remove from that the number of blank cells, as follows:</p>
+
+<pre>=(ROWS(B3:B8)*COLUMNS(B3:B8))-COUNTBLANK(B3:B8)</pre>
+
+<p>Looks complex, but works right away!</p>
+
+				<hr />
+				<footer class="page-footer">
+					
+
+
+<div class="author-image">
+	<img src="http://localhost:4000/images/bio-photo.jpg" alt="Dr Daren Warburton">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <span itemprop="author">Dr Daren Warburton</span></h3>
+	<p class="author-bio"></p>
+</div><!-- ./author-content -->
+					<div class="inline-btn">
+	<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=Excel%20cell%20validation%20-%20counting%20of%20non-blank%20cells&amp;url=http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/&amp;via=drwarbie" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+	<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
+	<a class="btn-social google-plus"  href="https://plus.google.com/share?url=http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
+</div><!-- /.share-this -->
+					<div class="page-meta">
+	<p>Updated <time datetime="2010-08-01T00:00:00Z" itemprop="datePublished">August 01, 2010</time></p>
+</div><!-- /.page-meta -->
+				</footer><!-- /.footer -->
+				<aside>
+					<hr />
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	var disqus_shortname = 'docgecko';
+
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+				</aside>
+			</div><!-- /.content -->
+		</div><!-- /.inner-wrap -->
+		<div class="ads"><style>
+.responsive-ads { width: 300px; height: 200px; }
+@media(min-width: 520px) { .responsive-ads { width: 468px; height: 60px; } }
+@media(min-width: 768px) { .responsive-ads { width: 160px; height: 600px; } }
+</style>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle responsive-ads"
+	style="display:inline-block"
+	data-ad-client="ca-pub-4659826301993758"
+	data-ad-slot="1276587625"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div><!-- /.ads -->
+	</article><!-- ./wrap -->
+</div><!-- /#main -->
+
+
+    <footer role="contentinfo" id="site-footer">
+	<nav role="navigation" class="menu bottom-menu">
+		<ul class="menu-item">
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/" >Home</a></li>
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/about/" >About</a></li>
+		
+      
+        
+      
+			<li><a href="http://localhost:4000/legal/" >Legal</a></li>
+		
+		</ul>
+	</nav><!-- /.bottom-menu -->
+	<p class="copyright">&#169; 2015 <a href="http://localhost:4000">Dr Daren Warburton</a> powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> + <a href="http://mmistakes.github.io/skinny-bones-jekyll/" rel="nofollow">Skinny Bones</a>.</p>
+</footer>
+
+
+    <script src="http://localhost:4000/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="http://localhost:4000/js/main.js"></script>
+
+    
+
+  </body>
+
+</html>

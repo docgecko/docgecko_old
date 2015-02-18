@@ -1,72 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:4000/articles/mongoid-and-rails---renaming-data-fields/</loc>
+    <loc>http://localhost:4000/code/mongoid-and-rails---renaming-data-fields/</loc>
     <lastmod>2012-07-16T00:00:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/articles/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/</loc>
+    <loc>http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/</loc>
     <lastmod>2011-12-22T00:00:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/articles/time.strftime(string)-reminder/</loc>
+    <loc>http://localhost:4000/code/time.strftime(string)-reminder/</loc>
     <lastmod>2011-06-23T00:00:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/articles/kill-rails-server/</loc>
+    <loc>http://localhost:4000/code/kill-rails-server/</loc>
     <lastmod>2011-05-27T00:00:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/articles/upgrading-and-downgrading-your-rubygems/</loc>
+    <loc>http://localhost:4000/code/upgrading-and-downgrading-your-rubygems/</loc>
     <lastmod>2011-04-10T00:00:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/articles/Excel-SUMIF-with-criteria-in-multiple-columns/</loc>
+    <loc>http://localhost:4000/models/Excel-SUMIF-with-criteria-in-multiple-columns/</loc>
     <lastmod>2010-12-01T00:00:00+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/articles/excel-cell-validation-counting-of-non-blank-cells/</loc>
+    <loc>http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/</loc>
     <lastmod>2010-08-01T00:00:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/articles/welcome-to-doc-geckos-blog/</loc>
+    <loc>http://localhost:4000/blog/welcome-to-doc-geckos-blog/</loc>
     <lastmod>2010-07-11T00:00:00+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://localhost:4000/404.html</loc>
-    <lastmod>2015-02-18T11:20:28+00:00</lastmod>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/about/</loc>
-    <lastmod>2015-02-18T11:20:28+00:00</lastmod>
+    <loc>http://localhost:4000/health/</loc>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/archive/</loc>
-    <lastmod>2015-02-18T11:20:28+00:00</lastmod>
+    <loc>http://localhost:4000/code/</loc>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://localhost:4000/</loc>
-    <lastmod>2015-02-18T11:20:28+00:00</lastmod>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://localhost:4000/terms/</loc>
-    <lastmod>2015-02-18T11:20:28+00:00</lastmod>
+    <loc>http://localhost:4000/models/</loc>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4000/blog/</loc>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4000/legal/</loc>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4000/about/</loc>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4000/training/</loc>
+    <lastmod>2015-02-18T16:50:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

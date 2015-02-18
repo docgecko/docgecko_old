@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Kill rails server"
-categories: articles
+categories: code
 comments: true
 ads: true
 image:

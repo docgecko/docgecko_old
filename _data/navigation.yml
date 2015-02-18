@@ -1,16 +1,26 @@
 # Site navigation links
 
-- title: Archive
-  url: /archive/
-  excerpt: "Posts and articles."
+- title: Blog
+  url: /blog/
+  excerpt: "My general thoughts and discussions."
   image:
 
-- title: Feed
-  url: /atom.xml
-  excerpt: "An atom friendly feed of the artciles."
+- title: Code
+  url: /code/
+  excerpt: "A selection of useful code snippets and uses"
+  image:
+
+- title: Models
+  url: /models/
+  excerpt: "A selection of useful Excel "
+  image:
+
+- title: Health
+  url: /health/
+  excerpt: "I love to swim, bike and run!"
   image:
 
 - title: About
   url: /about/
-  excerpt: "Summary about Dr Daren Warburton."
+  excerpt: "Found out or contact Daren Warburton."
   image:

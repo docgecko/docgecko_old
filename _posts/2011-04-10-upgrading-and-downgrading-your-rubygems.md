@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Upgrading and downgrading your rubygems"
-categories: articles
+categories: code
 comments: true
 ads: true
 image:
