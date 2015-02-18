@@ -5,7 +5,7 @@ categories: code
 comments: true
 ads: true
 image:
-  teaser: mongoid-rails.jpg
+  teaser: mongoid-rails-teaser.jpg
 ---
 
 I have been recently upgrading a luxury property rentals website that I have been developing with a partner of mine.  The site is Ruby on Rails based and uses the awesomeness of the NoSQL Mongo (using the Mongoid gem).

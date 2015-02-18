@@ -5,7 +5,7 @@ categories: code
 comments: true
 ads: true
 image:
-  teaser: ruby-gems.jpg
+  teaser: ruby-gems-teaser.jpg
 ---
 
 I just upgraded to rubygems version 1.8.1, which generates a large number of depreciation errors.  This is not a major problem as all still continues to work fine, expect for a couple of my gems: the sunspot (1.2.1) and sunspot_rails (1.2.1) gem.  Currently, under gem 1.8.1, I was unable to start or reindex solr.

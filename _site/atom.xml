@@ -9,7 +9,7 @@
   <subtitle>Specialist Risk &amp; Asset Performance Management Advisor</subtitle>
   <link href="http://localhost:4000/atom.xml" rel="self"/>
   <link href="http://localhost:4000/" rel="alternate" type="text/html"/>
-  <updated>2015-02-18T21:18:53+00:00</updated>
+  <updated>2015-02-18T21:32:26+00:00</updated>
   <id>http://localhost:4000/</id>
   <author>
     <name>Dr Daren Warburton</name>
@@ -345,7 +345,7 @@ update_rubygems _1.7.2_&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;When criteria exists in more than 1 column, you have to take a completely different approach, e.g. when you have a situations such as given in the table below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/excel-sumif.png&quot; alt=&quot;Excel SUMIF&quot; width=&quot;230px&quot; border=&quot;0&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/excel-sumif-figure.png&quot; alt=&quot;Excel SUMIF&quot; width=&quot;230px&quot; border=&quot;0&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Here I have 3 columns:&lt;/p&gt;
 

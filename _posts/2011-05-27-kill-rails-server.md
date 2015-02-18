@@ -5,7 +5,7 @@ categories: code
 comments: true
 ads: true
 image:
-  teaser: kill-server.jpg
+  teaser: kill-server-teaser.jpg
 ---
 
 This is just a brief reminder to myself of how to get rid of an already running rails server (for when it happens).

@@ -5,7 +5,7 @@ categories: models
 comments: true
 ads: true
 image:
-  teaser: data-validation.jpg
+  teaser: data-validation-teaser.jpg
 ---
 
 When building Excel-based models, more-and-more it is becoming clear that it is necessary to include such functionality as Validation and, to some degree, to the degree expected from web-based software.

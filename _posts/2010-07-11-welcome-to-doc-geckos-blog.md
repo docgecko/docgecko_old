@@ -5,7 +5,7 @@ categories: blog
 comments: true
 ads: true
 image:
-  teaser: welcome.jpg
+  teaser: welcome-teaser.jpg
 ---
 
 I began modelling the performance of assets as part of my [PhD](http://ethos.bl.uk/OrderDetails.do?did=1&uin=uk.bl.ethos.391581), when I developed a methodology for predicting the life of an ultra-reliable electro-actuator for deepwater oil & gas production, for [Rotork Actuation Ltd](http://www.rotork.co.uk).  The results identified a number of design-risks that were subsequently modified in advance of actually building the actuator.

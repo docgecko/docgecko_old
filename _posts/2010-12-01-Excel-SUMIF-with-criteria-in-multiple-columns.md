@@ -5,7 +5,7 @@ categories: models
 comments: true
 ads: true
 image:
-  teaser: sumif.jpg
+  teaser: excel-sumif-teaser.jpg
 ---
 
 The SUMIF function is designed to SUM one column if another column contains the some expected criteria.  For those who have already noticed, the SUMIF function does not work when your criteria exists in multiple columns.  This is an issue I just had to face.
@@ -14,7 +14,7 @@ The SUMIF function is designed to SUM one column if another column contains the 
 
 When criteria exists in more than 1 column, you have to take a completely different approach, e.g. when you have a situations such as given in the table below:
 
-<img src="/images/excel-sumif.png" alt="Excel SUMIF" width="230px" border="0"/>
+<img src="/images/excel-sumif-figure.png" alt="Excel SUMIF" width="230px" border="0"/>
 
 Here I have 3 columns:
 

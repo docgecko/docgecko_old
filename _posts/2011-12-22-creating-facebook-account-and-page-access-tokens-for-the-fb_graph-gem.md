@@ -5,7 +5,7 @@ categories: code
 comments: true
 ads: true
 image:
-  teaser: facebook-developer.jpg
+  teaser: facebook-developer-teaser.jpg
 ---
 
 I have a jobs board app built in Ruby on Rails ([http://infrajobshq.com](http://infrajobshq.com)).  As jobs are posted to the site by job advertisers, the app posts shortened information about each jobs to both Twitter and Facebook pages.
