@@ -2,30 +2,27 @@
   <section class="entry">
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h2>Recent blog posts <a href="#" onclick="(function(btn){var z=document.createElement('script');document.subtomeBtn=btn;z.src='https://www.subtome.com/load.js';document.body.appendChild(z);})(this);_gaq.push(['_trackEvent', 'Link', 'Subscribe']);" data-subtome-resource="http://epijim.uk" data-subtome-feeds="http://feeds.feedburner.com/epijim"><i class="fa fa-rss fa-fw"></i></a></h2>
+        <h2>Recent blog posts <a href="#" onclick="(function(btn){var z=document.createElement('script');document.subtomeBtn=btn;z.src='https://www.subtome.com/load.js';document.body.appendChild(z);})(this);_gaq.push(['_trackEvent', 'Link', 'Subscribe']);" data-subtome-resource="http://docgecko.com" data-subtome-feeds="http://feeds.feedburner.com/docgecko"><i class="fa fa-rss fa-fw"></i></a></h2>
       </header>
       <div class="entry-content">
-      </div><!--~~ /.entry-content ~~-->
-    </div><!--~~ /.entry-wrapper ~~-->
-  </section>
-</div>
-
-
-<div id="page-wrapper">
-  <section class="entry">
-    <div class="entry-wrapper">
-      <header class="entry-header">
-        <h2>Recent posts {{ page.categories | first | replace: '-',' ' | capitalize }}</h3>
-      </header>
-      <div class="entry-content">
-        <ul>
-          {% capture category_name %}
-            {{ page.categories | first }}
-          {% endcapture %}
-          {% for post in site.categories.[category_name] limit:3 %}
-            <li>
-              <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-            </li>
+        <ul class="recent-posts unstyled-list">
+          {% for post in site.posts limit:10 %}
+          <li>
+            <article>
+              <a href="{{ site.url }}{{ post.url }}">
+                <img src="{{ site.url }}/images/{{ post.image.teaser }}" alt="" class="preview">
+                <h2 class="title">{{ post.title }}</h2>
+                <p class="entry-meta">
+                  <span class="entry-date published">
+                    <time datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+                  </span>
+                  <span class="entry-category">
+                    - Category: <a href="/{{ post.categories }}/">{{ post.categories }}</a>
+                  </span>
+                </p>
+              </a>
+            </article>
+          </li>
           {% endfor %}
         </ul>
       </div><!--~~ /.entry-content ~~-->
