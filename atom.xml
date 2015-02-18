@@ -8,10 +8,10 @@ layout: null
 {% elsif site.github.url %}
   {% assign base = site.github.url %}
 {% endif %}
-  <title>{{ site.title }}</title>
+  <title>{{ site.title | xml_escape }}</title>
   <generator uri="https://github.com/jekyll/jekyll">Jekyll v{{ jekyll.version }}</generator>
     <icon>{{ site.url }}/apple-touch-icon-precomposed.png</icon>
-  <subtitle>{{ site.description }}</subtitle>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
   <link href="{{ base }}{{ page.url }}" rel="self"/>
   <link href="{{ base }}/" rel="alternate" type="text/html"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
