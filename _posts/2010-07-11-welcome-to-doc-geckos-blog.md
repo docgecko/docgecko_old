@@ -3,6 +3,7 @@ layout: article
 title: "Welcome to Doc Gecko's Blog"
 categories: articles
 comments: true
+ads: true
 image:
   teaser: welcome.jpg
 ---

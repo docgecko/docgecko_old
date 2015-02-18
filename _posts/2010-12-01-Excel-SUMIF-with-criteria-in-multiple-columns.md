@@ -3,6 +3,7 @@ layout: article
 title: "Excel SUMIF with criteria in multiple columns"
 categories: articles
 comments: true
+ads: true
 image:
   teaser: sumif.jpg
 ---
