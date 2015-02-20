@@ -3,8 +3,8 @@
 
 // Typography variables
 
-$base-font                   	: Georgia,Times,"Times New Roman",serif;
-$heading-font                	: "Helvetica Neue","Segoe UI",Arial,sans-serif;
+$base-font                    : Georgia,Times,"Times New Roman",serif;
+$heading-font                	: "ProximaNova", "freight-sans-pro", Helvetica, Arial, sans-serif;
 $caption-font                	: $base-font;
 $code-font                   	: monospace;
 $alt-font                    	: $heading-font;
@@ -19,8 +19,8 @@ $border-radius               	: 3px;
 
 $body-color                  	: #ebebeb;
 $text-color                  	: #313130;
-$base-color                  	: #343434;    
-$comp-color                  	: complement($base-color); 
+$base-color                  	: #343434;
+$comp-color                  	: complement($base-color);
 $border-color                	: #ddd;
 $white                       	: #fff;
 $black                       	: #000;
@@ -39,18 +39,18 @@ $table-hover-color           	: darken($table-background, 2);
 $table-stripe-color          	: darken($table-background, 4);
 $table-stripe-color-hover    	: darken($table-stripe-color, 5);
 
-$facebook-color					: #3b5998;
-$flickr-color					: #ff0084;
-$foursquare-color				: #0cbadf;
-$google-plus-color				: #dd4b39;
-$instagram-color				: #4e433c;
-$linkedin-color					: #4875b4;
-$pinterest-color				: #cb2027;
-$rss-color						: #fa9b39;
-$tumblr-color					: #2c4762;
-$twitter-color					: #55acee;
-$vimeo-color					: #1ab7ea;
-$youtube-color					: #ff3333;
+$facebook-color					      : #3b5998;
+$flickr-color					        : #ff0084;
+$foursquare-color				      : #0cbadf;
+$google-plus-color				    : #dd4b39;
+$instagram-color				      : #4e433c;
+$linkedin-color					      : #4875b4;
+$pinterest-color				      : #cb2027;
+$rss-color						        : #fa9b39;
+$tumblr-color					        : #2c4762;
+$twitter-color					      : #55acee;
+$vimeo-color					        : #1ab7ea;
+$youtube-color					      : #ff3333;
 
 
 // Form variables
@@ -68,13 +68,13 @@ $form-font-size              	: $doc-font-size;
 // Sliding Menu Navigation
 
 $sliding-menu-border-color	 	: $black;
-$sliding-menu-background 		: $black;
-$sliding-menu-color 	 		: $white;
-$sliding-menu-background-hover	: $black;
-$sliding-menu-color-hover	 	: $white;
-$sliding-menu-border   			: 1px solid $sliding-menu-border-color;
-$button-size		         	: 30px; 
-$transition						: .3s; // increase this to see the transformations in slow-motion
+$sliding-menu-background 		  : $black;
+$sliding-menu-color 	 		    : $white;
+$sliding-menu-background-hover: $black;
+$sliding-menu-color-hover	 	  : $white;
+$sliding-menu-border   			  : 1px solid $sliding-menu-border-color;
+$button-size		         	    : 30px;
+$transition						        : .3s; // increase this to see the transformations in slow-motion
 
 
 // Masthead
