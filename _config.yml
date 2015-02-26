@@ -13,8 +13,8 @@ github:
 # Jekyll configuration
 
 sass:
-    sass_dir: _sass
-    style: compressed
+  sass_dir: _sass
+  style: compressed
 permalink: /:categories/:title/
 markdown: kramdown
 highlighter: pygments

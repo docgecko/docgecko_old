@@ -5,27 +5,27 @@
 
   <title>Dr Daren Warburton</title>
   <generator uri="https://github.com/jekyll/jekyll">Jekyll v2.4.0</generator>
-    <icon>http://localhost:4000/apple-touch-icon-precomposed.png</icon>
+    <icon>http://docgecko.com/apple-touch-icon-precomposed.png</icon>
   <subtitle>Specialist Risk &amp; Asset Performance Management Advisor</subtitle>
-  <link href="http://localhost:4000/atom.xml" rel="self"/>
-  <link href="http://localhost:4000/" rel="alternate" type="text/html"/>
-  <updated>2015-02-20T15:41:10+00:00</updated>
-  <id>http://localhost:4000/</id>
+  <link href="http://docgecko.com/atom.xml" rel="self"/>
+  <link href="http://docgecko.com/" rel="alternate" type="text/html"/>
+  <updated>2015-02-26T11:32:59+00:00</updated>
+  <id>http://docgecko.com/</id>
   <author>
     <name>Dr Daren Warburton</name>
-    <uri>http://localhost:4000/</uri>
+    <uri>http://docgecko.com/</uri>
     <email>daren.sdw@gmail.com</email>
   </author>
 
   
   <entry>
     <title>Mongoid and Rails - Renaming data fields</title>
-    <link href="http://localhost:4000/code/mongoid-and-rails---renaming-data-fields/"/>
+    <link href="http://docgecko.com/code/mongoid-and-rails---renaming-data-fields/"/>
     <updated>2012-07-16T00:00:00+01:00</updated>
-    <id>http://localhost:4000/code/mongoid-and-rails---renaming-data-fields</id>
+    <id>http://docgecko.com/code/mongoid-and-rails---renaming-data-fields</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://localhost:4000/</uri>
+      <uri>http://docgecko.com/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -72,12 +72,12 @@
   
   <entry>
     <title>Creating Facebook Account and Page access tokens for the fb_graph gem</title>
-    <link href="http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/"/>
+    <link href="http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/"/>
     <updated>2011-12-22T00:00:00+00:00</updated>
-    <id>http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem</id>
+    <id>http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://localhost:4000/</uri>
+      <uri>http://docgecko.com/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -185,12 +185,12 @@
   
   <entry>
     <title>time.strftime(string) reminder</title>
-    <link href="http://localhost:4000/code/time.strftime(string)-reminder/"/>
+    <link href="http://docgecko.com/code/time.strftime(string)-reminder/"/>
     <updated>2011-06-23T00:00:00+01:00</updated>
-    <id>http://localhost:4000/code/time.strftime(string)-reminder</id>
+    <id>http://docgecko.com/code/time.strftime(string)-reminder</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://localhost:4000/</uri>
+      <uri>http://docgecko.com/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -257,12 +257,12 @@ t.strftime&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&
   
   <entry>
     <title>Kill rails server</title>
-    <link href="http://localhost:4000/code/kill-rails-server/"/>
+    <link href="http://docgecko.com/code/kill-rails-server/"/>
     <updated>2011-05-27T00:00:00+01:00</updated>
-    <id>http://localhost:4000/code/kill-rails-server</id>
+    <id>http://docgecko.com/code/kill-rails-server</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://localhost:4000/</uri>
+      <uri>http://docgecko.com/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -301,12 +301,12 @@ Daren     &lt;span class=&quot;m&quot;&gt;2881&lt;/span&gt;   0.1  0.1  &lt;span
   
   <entry>
     <title>Upgrading and downgrading your rubygems</title>
-    <link href="http://localhost:4000/code/upgrading-and-downgrading-your-rubygems/"/>
+    <link href="http://docgecko.com/code/upgrading-and-downgrading-your-rubygems/"/>
     <updated>2011-04-10T00:00:00+01:00</updated>
-    <id>http://localhost:4000/code/upgrading-and-downgrading-your-rubygems</id>
+    <id>http://docgecko.com/code/upgrading-and-downgrading-your-rubygems</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://localhost:4000/</uri>
+      <uri>http://docgecko.com/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -329,12 +329,12 @@ update_rubygems _1.7.2_&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   
   <entry>
     <title>Excel SUMIF with criteria in multiple columns</title>
-    <link href="http://localhost:4000/models/Excel-SUMIF-with-criteria-in-multiple-columns/"/>
+    <link href="http://docgecko.com/models/Excel-SUMIF-with-criteria-in-multiple-columns/"/>
     <updated>2010-12-01T00:00:00+00:00</updated>
-    <id>http://localhost:4000/models/Excel-SUMIF-with-criteria-in-multiple-columns</id>
+    <id>http://docgecko.com/models/Excel-SUMIF-with-criteria-in-multiple-columns</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://localhost:4000/</uri>
+      <uri>http://docgecko.com/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -374,12 +374,12 @@ update_rubygems _1.7.2_&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   
   <entry>
     <title>Excel cell validation - counting of non-blank cells</title>
-    <link href="http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/"/>
+    <link href="http://docgecko.com/models/excel-cell-validation-counting-of-non-blank-cells/"/>
     <updated>2010-08-01T00:00:00+01:00</updated>
-    <id>http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells</id>
+    <id>http://docgecko.com/models/excel-cell-validation-counting-of-non-blank-cells</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://localhost:4000/</uri>
+      <uri>http://docgecko.com/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -415,12 +415,12 @@ update_rubygems _1.7.2_&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   
   <entry>
     <title>Welcome to Doc Gecko&#39;s Blog</title>
-    <link href="http://localhost:4000/blog/welcome-to-doc-geckos-blog/"/>
+    <link href="http://docgecko.com/blog/welcome-to-doc-geckos-blog/"/>
     <updated>2010-07-11T00:00:00+01:00</updated>
-    <id>http://localhost:4000/blog/welcome-to-doc-geckos-blog</id>
+    <id>http://docgecko.com/blog/welcome-to-doc-geckos-blog</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://localhost:4000/</uri>
+      <uri>http://docgecko.com/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
