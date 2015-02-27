@@ -5,27 +5,274 @@
 
   <title>Dr Daren Warburton</title>
   <generator uri="https://github.com/jekyll/jekyll">Jekyll v2.4.0</generator>
-    <icon>http://docgecko.com/apple-touch-icon-precomposed.png</icon>
+    <icon>http://localhost:4000/apple-touch-icon-precomposed.png</icon>
   <subtitle>Specialist Risk &amp; Asset Performance Management Advisor</subtitle>
-  <link href="http://docgecko.com/atom.xml" rel="self"/>
-  <link href="http://docgecko.com/" rel="alternate" type="text/html"/>
-  <updated>2015-02-26T11:32:59+00:00</updated>
-  <id>http://docgecko.com/</id>
+  <link href="http://localhost:4000/atom.xml" rel="self"/>
+  <link href="http://localhost:4000/" rel="alternate" type="text/html"/>
+  <updated>2015-02-27T09:44:05+00:00</updated>
+  <id>http://localhost:4000/</id>
   <author>
     <name>Dr Daren Warburton</name>
-    <uri>http://docgecko.com/</uri>
+    <uri>http://localhost:4000/</uri>
     <email>daren.sdw@gmail.com</email>
   </author>
 
   
   <entry>
-    <title>Mongoid and Rails - Renaming data fields</title>
-    <link href="http://docgecko.com/code/mongoid-and-rails---renaming-data-fields/"/>
-    <updated>2012-07-16T00:00:00+01:00</updated>
-    <id>http://docgecko.com/code/mongoid-and-rails---renaming-data-fields</id>
+    <title>MeteorJS, iron-router and Bootstrap 3 - open a modal with its own URL</title>
+    <link href="http://localhost:4000/code/meteor-and-bootstrap---open-a-modal-with-its-own-url/"/>
+    <updated>2015-02-26T00:00:00+00:00</updated>
+    <id>http://localhost:4000/code/meteor-and-bootstrap---open-a-modal-with-its-own-url</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://docgecko.com/</uri>
+      <uri>http://localhost:4000/</uri>
+      <email>daren.sdw@gmail.com</email>
+    </author>
+    <content type="html">
+      
+      &lt;h2 id=&quot;why-open-a-modal-with-its-own-url&quot;&gt;Why open a modal with its own URL?&lt;/h2&gt;
+
+&lt;p&gt;Just to set the scene, I am currently using &lt;a href=&quot;https://www.meteor.com/&quot;&gt;MeteorJS&lt;/a&gt; with &lt;a href=&quot;https://github.com/iron-meteor/iron-router&quot;&gt;iron-router&lt;/a&gt; and &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;bootstrap 3&lt;/a&gt;, and I am using &lt;a href=&quot;http://getbootstrap.com/javascript/#modals&quot;&gt;bootstrap modals&lt;/a&gt; when creating new data and editing existing data.&lt;/p&gt;
+
+&lt;p&gt;My philosophy is that every page we open should have its open URL, modal or none modal.  That means if we refresh a page that has a modal, the modal will open automatically.&lt;/p&gt;
+
+&lt;p&gt;Conversely, modals that don’t have their own URL will not appear when we refresh a screen that had an open modal.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-bootstrap-approach&quot;&gt;The Bootstrap approach&lt;/h2&gt;
+
+&lt;p&gt;Lets begin by reviewing the bootstrap approach to modals.  Imagine we are on a web page containing a list of contacts: the contacts &lt;strong&gt;index&lt;/strong&gt; (or &lt;strong&gt;list&lt;/strong&gt;) page.  We click one of the contacts and access that particular contact’s &lt;strong&gt;show&lt;/strong&gt; page.&lt;/p&gt;
+
+&lt;p&gt;At this point we decide to edit the contacts data so we click an &lt;strong&gt;edit contact&lt;/strong&gt; link and our modal is opened with a form containing the data that can be edited.&lt;/p&gt;
+
+&lt;p&gt;The bootstrap approach will see that the &lt;strong&gt;edit&lt;/strong&gt; link has been pressed and, using some javascript built into bootstrap, the modal will be opened.  However, the the URL will remain unchanged.&lt;/p&gt;
+
+&lt;h2 id=&quot;meteorjs-and-iron-router&quot;&gt;MeteorJS and iron-router&lt;/h2&gt;
+
+&lt;p&gt;So how do we update URLs as modals open and close?  Well, this is where the awesomeness of &lt;a href=&quot;https://github.com/iron-meteor/iron-router&quot;&gt;iron-router&lt;/a&gt; comes into play.&lt;/p&gt;
+
+&lt;p&gt;Iron-router allows us to do three (3) important things for each of our URLs:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Determine the layout of the page (i.e. select the Meteor templates to be rendered);&lt;/li&gt;
+  &lt;li&gt;Select and prepare data to be rendered in the layout (carry out data subscriptions and any data manipulation or preparation before any data is rendered to a page); and,&lt;/li&gt;
+  &lt;li&gt;Perform any other actions that are required before or after rendering a page and its data.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;show-page-rendering&quot;&gt;Show Page: Rendering&lt;/h3&gt;
+
+&lt;p&gt;Firstly, lets go back to the example of the contacts web pages we discussed initially.  Again lets assume we have arrived at the page showing the details of one particular contact (the contact &lt;strong&gt;show page&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;Here we need to be able to view the various data of the contact.  Also, since we will be opening a modal from this page we must load the modal’s HTML into this &lt;strong&gt;show page&lt;/strong&gt;. However, the modal will be in a closed state (not open).&lt;/p&gt;
+
+&lt;h4 id=&quot;show-page-templates&quot;&gt;1. Show Page: Templates&lt;/h4&gt;
+
+&lt;p&gt;So, in terms of iron-router, our &lt;strong&gt;routes.js&lt;/strong&gt; file for the templates will look something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/contacts/:_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;contacts.show&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;layoutTemplate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;layout&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;contactShow&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;yieldTemplates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;editContactModal&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;modal&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In this, we have reference to out &lt;strong&gt;layout&lt;/strong&gt; file, e.g.:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-jade&quot; data-lang=&quot;jade&quot;&gt;&lt;span class=&quot;nt&quot;&gt;template&lt;/span&gt;(&lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;layout&amp;quot;&lt;/span&gt;)
+
+  &lt;span class=&quot;err&quot;&gt;....&lt;/span&gt;
+
+  &lt;span class=&quot;nf&quot;&gt;#content&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;yield&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;yield&lt;/span&gt; region=&amp;quot;modal&amp;quot;
+
+  &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;contactShow&lt;/strong&gt; template is rendered into the &lt;strong&gt;+yield&lt;/strong&gt;, which is the layout of the &lt;strong&gt;show page&lt;/strong&gt;. &lt;strong&gt;editContactModal&lt;/strong&gt; template is rendered into &lt;strong&gt;+yield region=modal&lt;/strong&gt;, which is the closed modal.&lt;/p&gt;
+
+&lt;h4 id=&quot;show-page-subscriptions-and-data-preparation&quot;&gt;2. Show Page: Subscriptions and Data Preparation&lt;/h4&gt;
+
+&lt;p&gt;Next we use the &lt;strong&gt;waitOn&lt;/strong&gt; section of iron-router to subscribe to the contacts data and the &lt;strong&gt;data&lt;/strong&gt; section to find the one record required to render into the &lt;strong&gt;show page&lt;/strong&gt; template:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/contacts/:_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;waitOn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Meteor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contacts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contact_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;contact&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Contacts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;findOne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;contact&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;contact&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Note: we also set a &lt;strong&gt;session&lt;/strong&gt; for the contact being shown.  The &lt;strong&gt;_id&lt;/strong&gt; will be used later when we need to edit this contact.&lt;/p&gt;
+
+&lt;h4 id=&quot;show-page-actions&quot;&gt;3. Show Page: Actions&lt;/h4&gt;
+
+&lt;p&gt;Finally, we have the option to carry out any actions (hooks) before, during or after rendering.  Assuming we simply want to render out data into the templates, we can call the following, which will render the data into the templates:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/contacts/:_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;onStop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;contactId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Note: this is also set up to delete the contact’s &lt;strong&gt;_id&lt;/strong&gt; stored in a session when we move away from the &lt;strong&gt;show page&lt;/strong&gt; as it will no longer be required.&lt;/p&gt;
+
+&lt;h3 id=&quot;modal-edit-page-rendering&quot;&gt;Modal Edit Page: Rendering&lt;/h3&gt;
+
+&lt;p&gt;Now this is where the beauty of using iron-router and the opening and closing of modals really comes through. So, here are points 1-3 for the &lt;strong&gt;modal edit page&lt;/strong&gt; (the &lt;strong&gt;modal edit URL&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;h4 id=&quot;modal-edit-page-meteor-templates&quot;&gt;1. Modal Edit Page: Meteor Templates&lt;/h4&gt;
+
+&lt;p&gt;So at this point we must remember that to open a modal, as it opens, a backdrop obscures the &lt;strong&gt;show page&lt;/strong&gt; behind and the modal sits on top of the everything.&lt;/p&gt;
+
+&lt;p&gt;Now in the case of our contacts, as the &lt;strong&gt;edit modal&lt;/strong&gt; is opened, we still want to see the &lt;strong&gt;show page&lt;/strong&gt; behind the modal.  As such, the templates of the &lt;strong&gt;contacts.edit&lt;/strong&gt; route must be an exact copy of the &lt;strong&gt;contacts.show&lt;/strong&gt; route, as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/contacts/:_id/edit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;contacts.edit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;layoutTemplate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;layout&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;contactShow&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;yieldTemplates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&amp;#39;editContactModal&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;modal&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;modal-edit-page-subscriptions-and-data-preparation&quot;&gt;2. Modal Edit Page: Subscriptions and Data Preparation&lt;/h4&gt;
+
+&lt;p&gt;Again, since we still need to render the &lt;strong&gt;show page&lt;/strong&gt; behind the modal with exactly the same data, the &lt;strong&gt;waitOn&lt;/strong&gt; and &lt;strong&gt;data&lt;/strong&gt; sections of the &lt;strong&gt;edit page&lt;/strong&gt; must be at least the same as the &lt;strong&gt;show page&lt;/strong&gt;, as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/contacts/:_id/edit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;waitOn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Meteor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contacts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contact_id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;contact&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Contacts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;findOne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;contact&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;contact&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Hence, the same data is being shown on the obscured &lt;strong&gt;show page&lt;/strong&gt; behind the modal, and this data is also used in the &lt;strong&gt;edit modal&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;modal-edit-page-actions&quot;&gt;3. Modal Edit Page: Actions&lt;/h4&gt;
+
+&lt;p&gt;Now point 3 is the only part that must be different compared to the &lt;strong&gt;show page&lt;/strong&gt;.  It is with the &lt;strong&gt;actions&lt;/strong&gt; that we can open and close the modal. We use the &lt;strong&gt;action&lt;/strong&gt; to open the modal and the &lt;strong&gt;onStop&lt;/strong&gt; action to close the modal, as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/contacts/:_id/edit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;#editContactModal&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;modal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;show&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;onStop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;#editContactModal&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;modal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;hide&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;contactId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: I reference the modal through its own id, in this case the id is called &lt;strong&gt;editContactModal&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Taking this approach, as we render the &lt;strong&gt;edit page&lt;/strong&gt;, the modal is opened, and when we leave the &lt;strong&gt;edit page&lt;/strong&gt;, such as when we submit the modal or cancel the modal, the &lt;strong&gt;onStop&lt;/strong&gt; action of this route will close the modal.&lt;/p&gt;
+
+&lt;h3 id=&quot;additional-functionality&quot;&gt;Additional Functionality&lt;/h3&gt;
+
+&lt;p&gt;The above describes the basic routing of this approach. However, in addition to the iron-router ensuring the correct templates and data are rendered, we are missing the functions to direct us between pages (the on-page links or buttons).&lt;/p&gt;
+
+&lt;p&gt;In order to open the &lt;strong&gt;edit page&lt;/strong&gt; from the &lt;strong&gt;show page&lt;/strong&gt;, we can implement a simple &lt;strong&gt;href link&lt;/strong&gt; or we can &lt;strong&gt;data-bind&lt;/strong&gt; a button or link, an example being as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;contactShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;click [data-bind=&amp;quot;editContact&amp;quot;]&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contacts.edit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contactId&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: we utilise the contact’s &lt;strong&gt;_id&lt;/strong&gt;, stored in the &lt;strong&gt;contactId session&lt;/strong&gt; created in the route (iron-router), to access the &lt;strong&gt;edit page&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The same goes for when we are in the &lt;strong&gt;edit page&lt;/strong&gt;, when we close the modal we need to be returned to the &lt;strong&gt;show page&lt;/strong&gt;, as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;contactModalEdit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;submit form#editContactForm&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contacts.show&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contactId&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;click form#editContactForm .close-modal&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contacts.show&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contactId&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;click #editContactModal .modal-backdrop&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contacts.show&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contactId&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This allows the modal to be closed by either submitting the edit form of the modal, pressing the modals cancel button or by clicking on the &lt;strong&gt;modal-backdrop&lt;/strong&gt; (bootstraps css id of the backdrop that obscures the page behind a modal), and redirects to the &lt;strong&gt;show page&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;final-interesting-point&quot;&gt;Final Interesting Point&lt;/h2&gt;
+
+&lt;p&gt;Now you may be thinking to yourself, when we open the &lt;strong&gt;modal edit page&lt;/strong&gt; and we are also rendering the &lt;strong&gt;show page&lt;/strong&gt; behind it at the same time, this must surely slow things down when moving to the &lt;strong&gt;edit URL&lt;/strong&gt;.  Surprisingly enough no.  Meteor is clever enough to know that it has already rendered the &lt;strong&gt;show page&lt;/strong&gt; and since data has not changed for the &lt;strong&gt;show page&lt;/strong&gt;, it will not completely repeat the rendering when you move to the &lt;strong&gt;edit page&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Meteor is simply amazing and iron-router makes it all that much better!&lt;/p&gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Mongoid and Rails - Renaming data fields</title>
+    <link href="http://localhost:4000/code/mongoid-and-rails---renaming-data-fields/"/>
+    <updated>2012-07-16T00:00:00+01:00</updated>
+    <id>http://localhost:4000/code/mongoid-and-rails---renaming-data-fields</id>
+    <author>
+      <name>Dr Daren Warburton</name>
+      <uri>http://localhost:4000/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -72,12 +319,12 @@
   
   <entry>
     <title>Creating Facebook Account and Page access tokens for the fb_graph gem</title>
-    <link href="http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/"/>
+    <link href="http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem/"/>
     <updated>2011-12-22T00:00:00+00:00</updated>
-    <id>http://docgecko.com/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem</id>
+    <id>http://localhost:4000/code/creating-facebook-account-and-page-access-tokens-for-the-fb_graph-gem</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://docgecko.com/</uri>
+      <uri>http://localhost:4000/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -185,12 +432,12 @@
   
   <entry>
     <title>time.strftime(string) reminder</title>
-    <link href="http://docgecko.com/code/time.strftime(string)-reminder/"/>
+    <link href="http://localhost:4000/code/time.strftime(string)-reminder/"/>
     <updated>2011-06-23T00:00:00+01:00</updated>
-    <id>http://docgecko.com/code/time.strftime(string)-reminder</id>
+    <id>http://localhost:4000/code/time.strftime(string)-reminder</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://docgecko.com/</uri>
+      <uri>http://localhost:4000/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -257,12 +504,12 @@ t.strftime&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&
   
   <entry>
     <title>Kill rails server</title>
-    <link href="http://docgecko.com/code/kill-rails-server/"/>
+    <link href="http://localhost:4000/code/kill-rails-server/"/>
     <updated>2011-05-27T00:00:00+01:00</updated>
-    <id>http://docgecko.com/code/kill-rails-server</id>
+    <id>http://localhost:4000/code/kill-rails-server</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://docgecko.com/</uri>
+      <uri>http://localhost:4000/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -301,12 +548,12 @@ Daren     &lt;span class=&quot;m&quot;&gt;2881&lt;/span&gt;   0.1  0.1  &lt;span
   
   <entry>
     <title>Upgrading and downgrading your rubygems</title>
-    <link href="http://docgecko.com/code/upgrading-and-downgrading-your-rubygems/"/>
+    <link href="http://localhost:4000/code/upgrading-and-downgrading-your-rubygems/"/>
     <updated>2011-04-10T00:00:00+01:00</updated>
-    <id>http://docgecko.com/code/upgrading-and-downgrading-your-rubygems</id>
+    <id>http://localhost:4000/code/upgrading-and-downgrading-your-rubygems</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://docgecko.com/</uri>
+      <uri>http://localhost:4000/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -329,12 +576,12 @@ update_rubygems _1.7.2_&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   
   <entry>
     <title>Excel SUMIF with criteria in multiple columns</title>
-    <link href="http://docgecko.com/models/Excel-SUMIF-with-criteria-in-multiple-columns/"/>
+    <link href="http://localhost:4000/models/Excel-SUMIF-with-criteria-in-multiple-columns/"/>
     <updated>2010-12-01T00:00:00+00:00</updated>
-    <id>http://docgecko.com/models/Excel-SUMIF-with-criteria-in-multiple-columns</id>
+    <id>http://localhost:4000/models/Excel-SUMIF-with-criteria-in-multiple-columns</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://docgecko.com/</uri>
+      <uri>http://localhost:4000/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -374,12 +621,12 @@ update_rubygems _1.7.2_&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   
   <entry>
     <title>Excel cell validation - counting of non-blank cells</title>
-    <link href="http://docgecko.com/models/excel-cell-validation-counting-of-non-blank-cells/"/>
+    <link href="http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells/"/>
     <updated>2010-08-01T00:00:00+01:00</updated>
-    <id>http://docgecko.com/models/excel-cell-validation-counting-of-non-blank-cells</id>
+    <id>http://localhost:4000/models/excel-cell-validation-counting-of-non-blank-cells</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://docgecko.com/</uri>
+      <uri>http://localhost:4000/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
@@ -415,12 +662,12 @@ update_rubygems _1.7.2_&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   
   <entry>
     <title>Welcome to Doc Gecko&#39;s Blog</title>
-    <link href="http://docgecko.com/blog/welcome-to-doc-geckos-blog/"/>
+    <link href="http://localhost:4000/blog/welcome-to-doc-geckos-blog/"/>
     <updated>2010-07-11T00:00:00+01:00</updated>
-    <id>http://docgecko.com/blog/welcome-to-doc-geckos-blog</id>
+    <id>http://localhost:4000/blog/welcome-to-doc-geckos-blog</id>
     <author>
       <name>Dr Daren Warburton</name>
-      <uri>http://docgecko.com/</uri>
+      <uri>http://localhost:4000/</uri>
       <email>daren.sdw@gmail.com</email>
     </author>
     <content type="html">
